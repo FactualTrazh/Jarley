@@ -214,24 +214,4 @@ module.exports = class {
         // Si no coincide con nada
         return null;
     };
-
-    /**
-     * Comprueba si ambos arrays son iguales
-     * @param {array} Array_a 
-     * @param {array} array_b 
-     */
-    /*compare (Array_a, array_b) {
-
-        // Verifica si el tamaño de los arrays son iguales
-        if (Array_a.length !== array_b.length) return false;
-
-        // Verifica si los valores son iguales
-        for (const inArray of array_a) {
-
-            if (!Array_b.includes(inArray)) return false;
-        };
-
-        // Si los arrays son iguales
-        return true;
-    };*/
 };
