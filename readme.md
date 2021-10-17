@@ -1,14 +1,10 @@
 Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 
-| Dependencias | Version |
-|--------------|---------|
-| discord.js   | 13.2.0  |
-| dotenv       | 10.0.0  |
-| megadb       | 3.4.0   |
-
-| Motores | Version |
-|---------|---------|
-| Node.js | 16.11.1 |
+| Dependencias | Version | | Motores | Version |
+|--------------|---------|-|---------|---------|
+| discord.js   | 13.2.0  | | Node    | 16.11.1 |
+| dotenv       | 10.0.0  | |         |         |
+| megadb       | 3.4.0   | |         |         |
 
 ## Estructuras
 
@@ -97,12 +93,12 @@ module.exports = {
         // Objeto | utils     | Las herramientas configuradas.
         command: function ({ client, event, loader, databases, bases, utils }) {
 
-            const embed = new discord.MessageEmbed()
+            const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de entrada (${utils.file.name}) ejecutado`)
             .setColor('#FFFFFF');
 
             // NOTA: No es necesario utilizar ".reply()".
-            event.editReply({ embeds: [ embed ] });
+            event.editReply({ embeds: [ messageEmbed ] });
         }
     }
 };
@@ -142,12 +138,12 @@ module.exports = {
         // Objeto | utils     | Las herramientas configuradas.
         command: function ({ client, event, loader, databases, bases, utils }) {
 
-            const embed = new discord.MessageEmbed()
+            const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de mensaje (${utils.file.name}) ejecutado`)
             .setColor('#FFFFFF');
 
             // NOTA: No es necesario utilizar ".reply()".
-            event.editReply({ embeds: [ embed ] });
+            event.editReply({ embeds: [ messageEmbed ] });
         }
     }
 };
@@ -187,12 +183,12 @@ module.exports = {
         // Objeto | utils     | Las herramientas configuradas.
         command: function ({ client, event, loader, databases, bases, utils }) {
 
-            const embed = new discord.MessageEmbed()
+            const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de usuario (${utils.file.name}) ejecutado`)
             .setColor('#FFFFFF');
 
             // NOTA: No es necesario utilizar ".reply()".
-            event.editReply({ embeds: [ embed ] });
+            event.editReply({ embeds: [ messageEmbed ] });
         }
     }
 };
