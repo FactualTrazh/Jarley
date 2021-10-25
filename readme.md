@@ -260,12 +260,14 @@ module.exports = {
 
 #### Servicio (Indexer)
 
-El servicio ``Indexer`` funciona para indexar los ``Comandos`` que fueron ``Eliminados``, ``Creados`` o ``Renombrados``
+Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``Creado`` o ``Editado``
 
-_Por limitaciones no se pueden identificar ``Comandos`` editados_
+_Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzado_
 
 #### Servicio (Priorities)
 
-El servicio ``Priorities`` funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
+Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
 
 _Para especificar que un archivo es prioridad, debe agregar ``priority`` en sus ``flags``_
+
+_Por limitaciones no se pueden identificar como prioridad un evento_
