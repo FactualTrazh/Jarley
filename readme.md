@@ -6,7 +6,6 @@ Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 | dotenv                | 10.0.0  | Estable   |
 | megadb                | 3.4.0   | Estable   |
 | @tensorflow/tfjs-node | 3.10.0  | Inestable |
-|-----------------------|---------|-----------|
 
 | Motores               | Version | Estado    |
 |-----------------------|---------|-----------|
