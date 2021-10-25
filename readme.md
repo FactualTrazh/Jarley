@@ -7,7 +7,8 @@ Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 | megadb                | 3.4.0   | Estable   |
 | @tensorflow/tfjs-node | 3.10.0  | Inestable |
 |-----------------------|---------|-----------|
-| Motores               |         |           | 
+
+| Motores               | Version | Estado    |
 |-----------------------|---------|-----------|
 | Node                  | 17.0.1  | Estable   |
 
