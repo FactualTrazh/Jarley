@@ -1,11 +1,11 @@
 Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 
-| Dependencias          | Version | Estado    |
-|-----------------------|---------|-----------|
-| discord.js            | 13.2.0  | Estable   |
-| dotenv                | 10.0.0  | Estable   |
-| megadb                | 3.4.0   | Estable   |
-| @tensorflow/tfjs-node | 3.10.0  | Inestable |
+| Dependencias          | Version | Opcional | Experimental |
+|-----------------------|---------|----------|--------------|
+| discord.js            | 13.2.0  |          |              |
+| dotenv                | 10.0.0  |          |              |
+| megadb                | 3.4.0   |          |              |
+| @tensorflow/tfjs-node | 3.10.0  | Si       | Si           |
 
 ## Estructura
 
@@ -83,13 +83,14 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto | client    | El cliente.
-        // Objeto | event     | El evento.
-        // Objeto | loaders   | El cargador.
-        // Objeto | databases | El gestor de archivos.
-        // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas.
-        command: function ({ client, event, loaders, databases, bases, utils }) {
+        // Objeto  | client    | El cliente.
+        // Objeto  | event     | El evento.
+        // Funcion | tensor    | El gestor de IAs.
+        // Objeto  | loaders   | El cargador.
+        // Objeto  | databases | El gestor de archivos.
+        // Objeto  | bases     | El gestor de bases. 
+        // Objeto  | utils     | Las herramientas.
+        command: function ({ client, event, tensor, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de entrada (${utils.file.name}) ejecutado`)
@@ -129,13 +130,14 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto | client    | El cliente.
-        // Objeto | event     | El evento.
-        // Objeto | loaders   | El cargador.
-        // Objeto | databases | El gestor de archivos.
-        // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas.
-        command: function ({ client, event, loaders, databases, bases, utils }) {
+        // Objeto  | client    | El cliente.
+        // Objeto  | event     | El evento.
+        // Funcion | tensor    | El gestor de IAs.
+        // Objeto  | loaders   | El cargador.
+        // Objeto  | databases | El gestor de archivos.
+        // Objeto  | bases     | El gestor de bases. 
+        // Objeto  | utils     | Las herramientas.
+        command: function ({ client, event, tensor, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de mensaje (${utils.file.name}) ejecutado`)
@@ -175,13 +177,14 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto | client    | El cliente.
-        // Objeto | event     | El evento.
-        // Objeto | loaders   | El cargador.
-        // Objeto | databases | El gestor de archivos.
-        // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas.
-        command: function ({ client, event, loaders, databases, bases, utils }) {
+        // Objeto  | client    | El cliente.
+        // Objeto  | event     | El evento.
+        // Funcion | tensor    | El gestor de IAs.
+        // Objeto  | loaders   | El cargador.
+        // Objeto  | databases | El gestor de archivos.
+        // Objeto  | bases     | El gestor de bases. 
+        // Objeto  | utils     | Las herramientas.
+        command: function ({ client, event, tensor, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de usuario (${utils.file.name}) ejecutado`)
@@ -211,12 +214,13 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto | client    | El cliente.
-        // Objeto | loaders   | El cargador.
-        // Objeto | databases | El gestor de archivos.
-        // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas.
-        ready: function ({ client, loaders, databases, bases, utils }) {
+        // Objeto  | client    | El cliente.
+        // Funcion | tensor    | El gestor de IAs.
+        // Objeto  | loaders   | El cargador.
+        // Objeto  | databases | El gestor de archivos.
+        // Objeto  | bases     | El gestor de bases. 
+        // Objeto  | utils     | Las herramientas.
+        ready: function ({ client, tensor, loaders, databases, bases, utils }) {
 
             console.log(`Servicio ${utils.file.name} ejecutado`);
         }
@@ -239,19 +243,20 @@ module.exports = {
     flags: [],
 
     // Funcion que se ejecuta al ser cargado el evento.
-    // Objeto | client    | El cliente.
-    // Objeto | loaders   | El cargador.
-    // Objeto | databases | El gestor de archivos.
-    // Objeto | bases     | El gestor de bases. 
-    // Objeto | utils     | Las herramientas.
-    event: function ({ client, loaders, databases, bases, utils }) {
+    // Objeto  | client    | El cliente.
+    // Funcion | tensor    | El gestor de IAs.
+    // Objeto  | loaders   | El cargador.
+    // Objeto  | databases | El gestor de archivos.
+    // Objeto  | bases     | El gestor de bases. 
+    // Objeto  | utils     | Las herramientas.
+    event: function ({ client, tensor, loaders, databases, bases, utils }) {
 
         console.log(`Evento ${utils.file.name} ejecutado`);
     }
 };
 ```
 
-## Informacion extra
+## Extra
 
 #### Servicio (Indexer)
 
