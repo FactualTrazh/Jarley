@@ -1,20 +1,21 @@
 Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 
-| Dependencias | Version | | Motores | Version |
-|--------------|---------|-|---------|---------|
-| discord.js   | 13.2.0  | | Node    | 17.0.0  |
-| dotenv       | 10.0.0  | |         |         |
-| megadb       | 3.4.0   | |         |         |
+| Dependencias          | Version | Estado    |
+|-----------------------|---------|-----------|
+| discord.js            | 13.2.0  | Estable   |
+| dotenv                | 10.0.0  | Estable   |
+| megadb                | 3.4.0   | Estable   |
+| @tensorflow/tfjs-node | 3.10.0  | Inestable |
+|-----------------------|---------|-----------|
+| Motores               |         |           | 
+|-----------------------|---------|-----------|
+| Node                  | 17.0.1  | Estable   |
 
-## Estructuras
+## Estructura
 
-#### Guardar
+#### Guardado
 
 Los archivos deben estar dentro de una carpeta y contener un archivo llamado ``main.js``
-
-_Los nombres de las carpetas seran los utilizados_
-
-_las carpetas con nombres iguales seran ignorados_
 
 ```
 commands\
@@ -51,27 +52,27 @@ events\
 
 ```
 
-#### Comandos de entrada
+#### Comando para entradas
 
 ```js
 const discord = require('discord.js');
 
 module.exports = {
 
-    // Este valor utiliza el nombre de la carpeta automaticamente.
+    // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
-    // Este valor es la descripcion del comando que se mostrara al poner "/".
+    // La descripcion del comando.
     description: 'Comando de prueba',
 
-    // Este valor son las opciones del comando que se mostrara al poner "/".
+    // Las opciones del comando.
     options: [],
 
-    // Este valor son los intents que necesita tu comando para funcionar.
+    // Los intents que necesita el comando.
     intents: [],
 
-    // Este valor son las configuraciones para el servicio "indexer" y se cambia automaticamente.
-    // show: {
+    // El esquema del comando (Se crea automaticamente).
+    // schema: {
     //
     //  name: 'test',
     //  description: 'Comando de prueba',
@@ -79,19 +80,22 @@ module.exports = {
     //  type: 'INPUT_CHAT'
     //},
     
-    // Este valor especifica si debe estar entre los primeros en cargarse.
-    priority: false,
+    // Las banderas para expecificar valores
+    flags: [],
 
-    // Aqui iran todos los eventos que alla en "events\".
+    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
+    // hide: false,
+
+    // Los eventos a utilizar de la carpeta "events".
     events: {
 
         // Objeto | client    | El cliente.
         // Objeto | event     | El evento.
-        // Objeto | loader    | El gestor de archivos.
-        // Objeto | databases | El gestor de datos.
+        // Objeto | loaders   | El cargador.
+        // Objeto | databases | El gestor de archivos.
         // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas configuradas.
-        command: function ({ client, event, loader, databases, bases, utils }) {
+        // Objeto | utils     | Las herramientas.
+        command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de entrada (${utils.file.name}) ejecutado`)
@@ -104,84 +108,90 @@ module.exports = {
 };
 ```
 
-#### Comandos de mensajes
+#### Comando para mensajes
 
 ```js
 const discord = require('discord.js');
 
 module.exports = {
 
-    // Este valor utiliza el nombre de la carpeta automaticamente.
-    // name: 'Prueba para mensaje',
+    // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
+    // name: 'test',
 
-    // Este valor son los intents que necesita tu comando para funcionar.
+    // Los intents que necesita el comando.
     intents: [],
 
-    // Este valor son las configuraciones para el servicio "indexer" y se cambia automaticamente.
-    // show: {
+    // El esquema del comando (Se crea automaticamente).
+    // schema: {
     //
-    //  name: 'Prueba para mensaje',
+    //  name: 'test',
     //  type: 'MESSAGE'
     //},
     
-    // Este valor especifica si debe estar entre los primeros en cargarse.
-    priority: false,
+    // Las banderas para expecificar valores
+    flags: [],
 
-    // Aqui iran todos los eventos que alla en "events\".
+    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
+    // hide: false,
+
+    // Los eventos a utilizar de la carpeta "events".
     events: {
 
         // Objeto | client    | El cliente.
         // Objeto | event     | El evento.
-        // Objeto | loader    | El gestor de archivos.
-        // Objeto | databases | El gestor de datos.
-        // Objeto | bases     | El gestor de recursos. 
-        // Objeto | utils     | Las herramientas configuradas.
-        command: function ({ client, event, loader, databases, bases, utils }) {
+        // Objeto | loaders   | El cargador.
+        // Objeto | databases | El gestor de archivos.
+        // Objeto | bases     | El gestor de bases. 
+        // Objeto | utils     | Las herramientas.
+        command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de mensaje (${utils.file.name}) ejecutado`)
             .setColor('#FFFFFF');
 
-            // NOTA: No es necesario utilizar ".reply()".
+            // NOTA: No es necesario utilizar la funcion ".reply()".
             event.editReply({ embeds: [ messageEmbed ] });
         }
     }
 };
 ```
 
-#### Comandos de usuarios
+#### Comando para usuarios
 
 ```js
 const discord = require('discord.js');
 
 module.exports = {
 
-    // Este valor utiliza el nombre de la carpeta automaticamente.
-    // name: 'Prueba para usuario',
+    // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
+    // name: 'test',
 
-    // Este valor son los intents que necesita tu comando para funcionar.
+    // Los intents que necesita el comando.
     intents: [],
 
-    // Este valor son las configuraciones para el servicio "indexer" y se cambia automaticamente.
-    // show: {
+    // El esquema del comando (Se crea automaticamente).
+    // schema: {
     //
-    //  name: 'Prueba para usuario',
+    //  name: 'test',
     //  type: 'USER'
     //},
     
-    // Este valor especifica si debe estar entre los primeros en cargarse.
-    priority: false,
+    // Las banderas para expecificar valores
+    flags: [],
 
-    // Aqui iran todos los eventos que alla en "events\".
+    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
+    // hide: false,
+
+    // Los eventos a utilizar de la carpeta "events".
     events: {
 
         // Objeto | client    | El cliente.
         // Objeto | event     | El evento.
-        // Objeto | loader    | El gestor de archivos.
-        // Objeto | databases | El gestor de datos.
+        // Objeto | loaders   | El cargador.
+        // Objeto | databases | El gestor de archivos.
         // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas configuradas.
-        command: function ({ client, event, loader, databases, bases, utils }) {
+        // Objeto | utils     | Las herramientas.
+        command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Comando de usuario (${utils.file.name}) ejecutado`)
@@ -194,29 +204,29 @@ module.exports = {
 };
 ```
 
-#### Servicios
+#### Servicio
 
 ```js
 module.exports = {
 
-    // Este valor utiliza el nombre de la carpeta automaticamente.
+    // El nombre del servicio (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
-    // Este valor son los intents que necesita tu servicio para funcionar.
+    // Los intents que necesita el servicio.
     intents: [],
     
-    // Este valor especifica si se tiene que cargar antes que el resto.
-    priority: false,
+    // Las banderas para expecificar valores
+    flags: [],
 
-    // Aqui iran todos los eventos que alla en "events\".
+    // Los eventos a utilizar de la carpeta "events".
     events: {
 
         // Objeto | client    | El cliente.
-        // Objeto | loader    | El gestor de archivos.
-        // Objeto | databases | El gestor de datos.
+        // Objeto | loaders   | El cargador.
+        // Objeto | databases | El gestor de archivos.
         // Objeto | bases     | El gestor de bases. 
-        // Objeto | utils     | Las herramientas configuradas.
-        ready: function ({ client, loader, databases, bases, utils }) {
+        // Objeto | utils     | Las herramientas.
+        ready: function ({ client, loaders, databases, bases, utils }) {
 
             console.log(`Servicio ${utils.file.name} ejecutado`);
         }
@@ -224,34 +234,36 @@ module.exports = {
 };
 ```
 
-#### Eventos
+#### Evento
 
 ```js
 module.exports = {
 
-    // Este valor utiliza el nombre de la carpeta automaticamente.
+    // El nombre del evento (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
-    // Este valor son los intents que necesita tu eventos para funcionar.
+    // Los intents que necesita el evento.
     intents: [],
     
-    // Este valor especifica si se tiene que cargar antes que el resto.
-    priority: false,
+    // Las banderas para expecificar valores
+    flags: [],
 
-    // Aqui ira el evento.
+    // Funcion que se ejecuta al ser cargado el evento.
     // Objeto | client    | El cliente.
-    // Objeto | loader    | El gestor de archivos.
-    // Objeto | databases | El gestor de datos.
+    // Objeto | loaders   | El cargador.
+    // Objeto | databases | El gestor de archivos.
     // Objeto | bases     | El gestor de bases. 
-    // Objeto | utils     | Las herramientas configuradas.
-    event: function ({ client, loader, databases, bases, utils }) {
+    // Objeto | utils     | Las herramientas.
+    event: function ({ client, loaders, databases, bases, utils }) {
 
         console.log(`Evento ${utils.file.name} ejecutado`);
     }
 };
 ```
 
-## Indexado automatico
+## Informacion extra
+
+#### Indexado automatico
 
 El indexado de ``Comandos`` se realiza cuando uno o varios ``Comandos`` fueron ``Eliminados``, ``Creados`` o ``Renombrados``
 

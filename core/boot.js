@@ -1,23 +1,25 @@
 'use strict';
 
-const loader    = require('./loader/export.js');
-const databases = require('./databases/export.js');
 const bases     = require('./bases/export.js');
+const databases = require('./databases/export.js');
+const loaders   = require('./loaders/exports.js');
+const tensor    = require('./tensor/export.js');
 
 module.exports = function (client) {
-
-    for (const inFile of loader.reader.events) {
+    
+    for (const _file of loaders.readeds.events) {
 
         const content = {
             
             client:    client,
-            loader:    loader,
+            tensor:    tensor,
+            loaders:   loaders,
             databases: databases,
             bases:     bases,
-            utils: new bases.utils(inFile, client)
+            utils: new bases.utils(_file)
         };
 
         // Carga el evento
-        inFile.event(content);
+        _file.event(content);
     };
 };

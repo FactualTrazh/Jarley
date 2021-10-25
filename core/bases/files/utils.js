@@ -10,7 +10,7 @@ module.exports = class {
 
         this.core = {
 
-            version: '1.15.3',
+            version: '1.16.0',
             icon:    'https://i.ibb.co/QdswNcp/icon.png',
             banner:  'https://i.ibb.co/Stp3ZNn/banner.png',
             source:  'https://github.com/MarzonDark/Jarley'

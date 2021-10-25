@@ -1,27 +1,26 @@
 'use strict';
 
 const discord = require('discord.js');
-const loader  = require('./core/loader/export.js');
-require('dotenv').config();
+const dotenv  = require('dotenv');
 
-const client = new discord.Client({ 
+const loaders = require('./core/loaders/exports.js');
 
-    allowedMentions: { parse: [] },
-    intents: loader.intents,
-    partials: []
+// Configura las variables de entorno
+dotenv.config();
+
+// Crea el cliente
+const client = new discord.Client({
+
+    intents: loaders.intents,
+    allowMentions: { parsed: [] },
 });
 
-// Carga los archivos 
+// Carga los archivos
 require('./core/boot.js')(client);
 
-// Establecer conexion
+// Conecta el cliente
 console.log('Estableciendo conexion');
 
 client.login(process.env.token)
 .then(() => console.log('Conexion establecida'))
-.catch((err) => {
-
-    console.log('Conexion fallida');
-
-    throw err;
-});
+.catch((error) => console.log('Conexion fallida', error));

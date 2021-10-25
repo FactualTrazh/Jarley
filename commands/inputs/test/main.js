@@ -8,7 +8,7 @@ module.exports = {
     
     events: {
     
-        command: function ({ client, event, loader, databases, bases, utils }) {
+        command: function ({ client, event, tensor, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
             .setDescription(`Hola ${event.user.toString()}`)

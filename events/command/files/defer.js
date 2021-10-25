@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = async function ({ client, event, loader, databases, bases, utils }) {
+module.exports = async function ({ client, event, loaders, databases, bases, utils }) {
 
     try {
 
-        await event.deferReply();
+        await event.deferReply({ ephemeral: utils.file.flags.includes('hide') });
     } catch {
 
         return false;

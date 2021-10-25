@@ -4,7 +4,7 @@ const defer = require('./files/defer.js');
 
 module.exports = {
 
-    event: function ({ client, loader, databases, bases, utils }) {
+    event: function ({ client, tensor, loaders, databases, bases, utils }) {
 
         client.on('interactionCreate', async (event) => {
 
@@ -13,24 +13,25 @@ module.exports = {
             // Comandos
             if (event.isCommand()) {
 
-                for (const inFile of loader.events[utils.file.name].commands) {
+                for (const _file of loaders.events[utils.file.name].commands) {
 
                     const content = {
 
                         client:    client,
                         event:     event,
-                        loader:    loader,
+                        tensor:    tensor,
+                        loaders:   loaders,
                         databases: databases,
                         bases:     bases,
-                        utils: new bases.utils(inFile)
+                        utils: new bases.utils(_file)
                     };
 
-                    if (event.commandName === inFile.name
+                    if (event.commandName === _file.name
                     &&  await defer(content)) {
 
                         try {
                     
-                            inFile.events[utils.file.name](content);
+                            _file.events[utils.file.name](content);
                         } catch (err) {
         
                             console.log(err);
@@ -43,25 +44,26 @@ module.exports = {
             if (event.isContextMenu()
             &&  event.targetType === 'MESSAGE') {
                 
-                for (const inFile of loader.events[utils.file.name].commands) {
+                for (const _file of loaders.events[utils.file.name].commands) {
 
                     const content = {
 
                         client:    client,
                         event:     event,
-                        loader:    loader,
+                        tensor:    tensor,
+                        loaders:   loaders,
                         databases: databases,
                         bases:     bases,
-                        utils: new bases.utils(inFile)
-                    }
+                        utils: new bases.utils(_file)
+                    };
 
-                    if (event.commandName === inFile.name
-                    &&  event.targetType  === inFile.type
+                    if (event.commandName === _file.name
+                    &&  event.targetType  === _file.type
                     &&  await defer(content)) {
 
                         try {
                     
-                            inFile.events[utils.file.name](content);
+                            _file.events[utils.file.name](content);
                         } catch (err) {
         
                             console.log(err);
@@ -74,25 +76,26 @@ module.exports = {
             if (event.isContextMenu()
             &&  event.targetType === 'USER') {
                 
-                for (const inFile of loader.events[utils.file.name].commands) {
+                for (const _file of loaders.events[utils.file.name].commands) {
 
                     const content = {
 
                         client:    client,
                         event:     event,
-                        loader:    loader,
+                        tensor:    tensor,
+                        loaders:   loaders,
                         databases: databases,
                         bases:     bases,
-                        utils: new bases.utils(inFile)
-                    }
+                        utils: new bases.utils(_file)
+                    };
 
-                    if (event.commandName === inFile.name
-                    &&  event.targetType  === inFile.type
+                    if (event.commandName === _file.name
+                    &&  event.targetType  === _file.type
                     &&  await defer(content)) {
 
                         try {
                     
-                            inFile.events[utils.file.name](content);
+                            _file.events[utils.file.name](content);
                         } catch (err) {
         
                             console.log(err);
