@@ -5,8 +5,6 @@ const discord = require('discord.js');
 module.exports = {
 
     description: 'Comando de prueba',
-
-    flags: [ 'priority' ],
     
     events: {
     

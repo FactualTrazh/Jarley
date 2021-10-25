@@ -8,10 +8,10 @@ module.exports = {
 
             for (const _readed in loaders.readeds) {
 
-                const actived  = loaders.readeds[_readed].filter((x) => x.flags.includes('priority'));
+                const enabled  = loaders.readeds[_readed].filter((x) => x.flags.includes('priority'));
                 const disabled = loaders.readeds[_readed].filter((x) => !x.flags.includes('priority'));
             
-                loaders.readeds[_readed] = actived.concat(disabled);
+                loaders.readeds[_readed] = enabled.concat(disabled);
             };
         }
     }
