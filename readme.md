@@ -253,8 +253,14 @@ module.exports = {
 
 ## Informacion extra
 
-#### Indexado automatico
+#### Servicio (Indexer)
 
-El indexado de ``Comandos`` se realiza cuando uno o varios ``Comandos`` fueron ``Eliminados``, ``Creados`` o ``Renombrados``
+El servicio ``Indexer`` funciona para indexar los ``Comandos`` que fueron ``Eliminados``, ``Creados`` o ``Renombrados``
 
 _Por limitaciones no se pueden identificar ``Comandos`` editados_
+
+#### Servicio (Priorities)
+
+El servicio ``Priorities`` funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
+
+_Para especificar que un archivo es prioridad, debe agregar ``priority`` en sus ``flags``_
