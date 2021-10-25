@@ -7,10 +7,6 @@ Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 | megadb                | 3.4.0   | Estable   |
 | @tensorflow/tfjs-node | 3.10.0  | Inestable |
 
-| Motores               | Version | Estado    |
-|-----------------------|---------|-----------|
-| Node                  | 17.0.1  | Estable   |
-
 ## Estructura
 
 #### Guardado
@@ -77,14 +73,12 @@ module.exports = {
     //  name: 'test',
     //  description: 'Comando de prueba',
     //  options: [],
-    //  type: 'INPUT_CHAT'
+    //  type: 'INPUT_CHAT',
+    //  defaultPermission: true
     //},
     
-    // Las banderas para expecificar valores
+    // Las banderas para expecificar valores.
     flags: [],
-
-    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
-    // hide: false,
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -125,14 +119,12 @@ module.exports = {
     // schema: {
     //
     //  name: 'test',
-    //  type: 'MESSAGE'
+    //  type: 'MESSAGE',
+    //  defaultPermission: true
     //},
     
-    // Las banderas para expecificar valores
+    // Las banderas para expecificar valores.
     flags: [],
-
-    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
-    // hide: false,
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -173,14 +165,12 @@ module.exports = {
     // schema: {
     //
     //  name: 'test',
-    //  type: 'USER'
+    //  type: 'USER',
+    //  defaultPermission: true
     //},
     
-    // Las banderas para expecificar valores
+    // Las banderas para expecificar valores.
     flags: [],
-
-    // Si el comando debe mostrarse de forma normal o oculta (Experimental).
-    // hide: false,
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -215,7 +205,7 @@ module.exports = {
     // Los intents que necesita el servicio.
     intents: [],
     
-    // Las banderas para expecificar valores
+    // Las banderas para expecificar valores.
     flags: [],
 
     // Los eventos a utilizar de la carpeta "events".
@@ -245,7 +235,7 @@ module.exports = {
     // Los intents que necesita el evento.
     intents: [],
     
-    // Las banderas para expecificar valores
+    // Las banderas para expecificar valores.
     flags: [],
 
     // Funcion que se ejecuta al ser cargado el evento.
