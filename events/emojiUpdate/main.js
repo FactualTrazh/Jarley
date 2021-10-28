@@ -9,7 +9,7 @@ module.exports = {
         discord.Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS
     ],
 
-    event: function ({ client, tensor, loaders, databases, bases, utils }) {
+    event: function ({ client, loaders, databases, bases, utils }) {
 
         client.on('emojiUpdate', ({}, event) => {
 
@@ -17,13 +17,12 @@ module.exports = {
 
                 const content = {
 
-                    client:     client,
-                    event:      event,
-                    tensor:     tensor,
-                    loaders:    loaders,
-                    databases:  databases,
-                    bases:      bases,
-                    utils:  new bases.utils(_file)
+                    client:    client,
+                    event:     event,
+                    loaders:   loaders,
+                    databases: databases,
+                    bases:     bases,
+                    utils: new bases.utils(_file)
                 };
 
                 try {

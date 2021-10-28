@@ -3,7 +3,6 @@
 const bases     = require('./bases/export.js');
 const databases = require('./databases/export.js');
 const loaders   = require('./loaders/exports.js');
-const tensor    = require('./tensor/export.js');
 
 module.exports = function (client) {
     
@@ -12,7 +11,6 @@ module.exports = function (client) {
         const content = {
             
             client:    client,
-            tensor:    tensor,
             loaders:   loaders,
             databases: databases,
             bases:     bases,

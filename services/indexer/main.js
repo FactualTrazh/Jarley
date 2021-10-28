@@ -4,7 +4,7 @@ module.exports = {
 
     events: {
 
-        ready: async function ({ client, tensor, loaders, databases, bases, utils }) {
+        ready: async function ({ client, loaders, databases, bases, utils }) {
 
             const loadedCommands = loaders.readeds.commands.map((x) => x.schema);
             const botCommands    = await client.application.commands.fetch();

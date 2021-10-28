@@ -4,7 +4,7 @@ const defer = require('./files/defer.js');
 
 module.exports = {
 
-    event: function ({ client, tensor, loaders, databases, bases, utils }) {
+    event: function ({ client, loaders, databases, bases, utils }) {
 
         client.on('interactionCreate', async (event) => {
 
@@ -19,7 +19,6 @@ module.exports = {
 
                         client:    client,
                         event:     event,
-                        tensor:    tensor,
                         loaders:   loaders,
                         databases: databases,
                         bases:     bases,
@@ -50,7 +49,6 @@ module.exports = {
 
                         client:    client,
                         event:     event,
-                        tensor:    tensor,
                         loaders:   loaders,
                         databases: databases,
                         bases:     bases,
@@ -82,7 +80,6 @@ module.exports = {
 
                         client:    client,
                         event:     event,
-                        tensor:    tensor,
                         loaders:   loaders,
                         databases: databases,
                         bases:     bases,

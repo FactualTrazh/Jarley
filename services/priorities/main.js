@@ -4,7 +4,7 @@ module.exports = {
 
     events: {
 
-        ready: function ({ client, tensor, loaders, databases, bases, utils }) {
+        ready: function ({ client, loaders, databases, bases, utils }) {
 
             for (const _readed in loaders.readeds) {
 
