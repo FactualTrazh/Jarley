@@ -129,15 +129,5 @@ for (const _folder of folders.services) {
     readeds.services.push(content);
 };
 
-// Gestiona los archivos por sus prioridades
-/*
-for (const _readed in readeds) {
-
-    const actived  = readeds[_readed].filter((x) => x.flags.includes('priority'));
-    const disabled = readeds[_readed].filter((x) => !x.flags.includes('priority'));
-
-    readeds[_readed] = actived.concat(disabled);
-};*/
-
 // Exporta los archivos cargados
 module.exports = readeds;
