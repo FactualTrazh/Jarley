@@ -12,8 +12,8 @@ module.exports = {
             function index () {
     
                 client.application.commands.set(loadedCommands)
-                .then(() => console.log('Comandos indexados'))
-                .catch((err) => console.log(err));
+                .then(() => console.log('Indexado de comandos finalizado'))
+                .catch((error) => console.error('Indexado de comandos fallido', error));
             };
 
             // Fuerza el indexado
@@ -31,23 +31,21 @@ module.exports = {
                 // Verifica si se obtuvo el comando
                 if (!findCommand) return index();
 
-                // Verifica si los tamaños son iguales
-                if (findCommand.options.length !== _file.options.length) return index();
+                // Verifica si el comando tiene opciones
+                if (findCommand.options) {
 
-                // Verifica si los arrays son iguales
-                for (const _option of _file.options) {
+                    // Verifica si los tamaños son iguales
+                    if (findCommand.options.length !== _file.options.length) return index();
 
-                    // Obtiene la opcion
-                    const findOption = findCommand.options.find((x) => x.name === _option.name);
+                    // Verifica si los arrays son iguales
+                    for (const _option of _file.options) {
 
-                    // Verifica si se obtuvo la opcion
-                    if (!findOption) return index();
+                        // Obtiene la opcion
+                        const findOption = findCommand.options.find((x) => x.name === _option.name);
 
-                    // Verifica si la descripcion es igual
-                    if (findOption.description !== _option.description) return index();
-
-                    // Verifica si el tipo es igual
-                    if (findOption.type !== _option.type) return index();
+                        // Verifica si se obtuvo la opcion
+                        if (!findOption) return index();
+                    };
                 };
             };  
         }

@@ -19,8 +19,6 @@ const client = new discord.Client({
 require('./core/boot.js')(client);
 
 // Conecta el cliente
-console.log('Estableciendo conexion');
-
 client.login(process.env.token)
 .then(() => console.log('Conexion establecida'))
-.catch((error) => console.log('Conexion fallida', error));
+.catch((error) => console.error('Conexion fallida', error));
