@@ -252,15 +252,25 @@ module.exports = {
 
 # Informacion extra
 
-### Indexador de comandos (services/indexer)
+### Indexacion de comandos
 
 Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``Creado`` o ``Editado``
 
 _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzado_
 
-### Gestor de prioridades (services/priorities)
+_Ubicado en ``services/indexer``_
+
+### Gestion de prioridades
 
 Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
+
+_Ubicado en ``services/priorities``_
+
+### Carga de eventos
+
+Los eventos que no sean requeridos no se cargaran
+
+_Ubicado en ``core/loaders/files/events.js``_
 
 ### Flags predefinidos
 

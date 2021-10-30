@@ -5,8 +5,11 @@ const databases = require('./databases/export.js');
 const loaders   = require('./loaders/exports.js');
 
 module.exports = function (client) {
-    
-    for (const _file of loaders.readeds.events) {
+
+    for (const _event in loaders.events) {
+
+        // Obtiene el evento entre los cargados
+        const file = loaders.readeds.events.find((x) => x.name === _event);
 
         const content = {
             
@@ -14,10 +17,10 @@ module.exports = function (client) {
             loaders:   loaders,
             databases: databases,
             bases:     bases,
-            utils: new bases.utils(_file)
+            utils: new bases.utils(file)
         };
 
-        // Carga el evento
-        _file.event(content);
+        // Carga los eventos
+        file.event(content);
     };
 };

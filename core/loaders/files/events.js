@@ -10,12 +10,16 @@ for (const _file of readeds.events) {
     const services = readeds.services.filter((x) => x.events[_file.name]);
     const all      = commands.concat(services);
         
-    // Exporta el evento
-    loadeds[_file.name] = {
+    // Verifica si el evento no es requerido
+    if (all.length > 0) {
 
-        commands: commands,
-        services: services,
-        all:      all
+        // Exporta el evento
+        loadeds[_file.name] = {
+
+            commands: commands,
+            services: services,
+            all:      all
+        };
     };
 };
 
