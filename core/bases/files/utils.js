@@ -13,7 +13,7 @@ module.exports = class {
             version: '1.16.0',
             icon:    'https://i.ibb.co/QdswNcp/icon.png',
             banner:  'https://i.ibb.co/Stp3ZNn/banner.png',
-            source:  'https://github.com/MarzonDark/Jarley'
+            github:  'https://github.com/MarzonDark/Jarley'
         };
 
         this.flags = {
@@ -22,65 +22,7 @@ module.exports = class {
             nsfw: /(porn(o|))|(sex(o|))|(culo)|(put(o|a))|(pene)|(semen)|(esperma)|(cum)|(vagina)|(teta)|(hentai)|(verga)|(folla)|(viola)|(fuck)|(xxx)|(ano)|(bukake)/g
         };
     };
-
-    /**
-     * Traduce meses de ingles al español
-     * @param {string|number|array} content
-     */
-    months (content) {
-
-        const list = {
-        
-            1:  'Enero',
-            2:  'Febrero',
-            3:  'Marzo',
-            4:  'Abril',
-            5:  'Mayo',
-            6:  'Junio',
-            7:  'Julio',
-            8:  'Agosto',
-            9:  'Septiembre',
-            10: 'Octubre',
-            11: 'Noviembre',
-            12: 'Diciembre',
-            
-            JANUARY:   'Enero',
-            FEBRUARY:  'Febrero',
-            MARCH:     'Marzo',
-            APRIL:     'Abril',
-            MAY:       'Mayo',
-            JUNE:      'Junio',
-            JULY:      'Julio',
-            AUGUST:    'Agosto',
-            SEPTEMBER: 'Septiembre',
-            OCTOBER:   'Octubre',
-            NOVEMBER:  'Noviembre',
-            DECEMBER:  'Diciembre'
-        };
-
-        // Si es String
-        if (typeof content === 'string') return list[content.toUpperCase()];
-
-        // Si es Number
-        if (typeof content === 'number') return list[content];
     
-        // Si es Array 
-        if (Array.isArray(content)) {
-
-            const cache = [];
-
-            for (const inContent of content) {
-
-                cache.push(this.months(inContent));
-            };
-
-            return cache;
-        };
-
-        // Si no coincide con nada 
-        return null;
-    };
-
     /**
      * Traduce permisos de ingles al español
      * @param {string|bigint} content

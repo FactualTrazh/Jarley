@@ -17,7 +17,7 @@ const folders = {
     services: fs.readdirSync(directories.services).filter((x) => !x.startsWith('.'))
 };
 
-const readeds = {
+const loadeds = {
 
     commands: [],
     events:   [],
@@ -47,7 +47,7 @@ for (const _folder of folders.commands.inputs) {
     content.events ??= {};
 
     // Exporta el contenido
-    readeds.commands.push(content);
+    loadeds.commands.push(content);
 };
 
 // Carga los comandos de mensajes
@@ -69,7 +69,7 @@ for (const _folder of folders.commands.messages) {
     content.events ??= {};
 
     // Exporta el contenido
-    readeds.commands.push(content);
+    loadeds.commands.push(content);
 };
 
 // Carga los comandos de usuarios
@@ -92,7 +92,7 @@ for (const _folder of folders.commands.users) {
     content.events ??= {};
 
     // Exporta el contenido
-    readeds.commands.push(content);
+    loadeds.commands.push(content);
 };
 
 // Carga los eventos
@@ -109,7 +109,7 @@ for (const _folder of folders.events) {
     content.event ??= function () {};
 
     // Exporta el contenido
-    readeds.events.push(content);
+    loadeds.events.push(content);
 };
 
 // Carga los servicios
@@ -126,8 +126,8 @@ for (const _folder of folders.services) {
     content.events ??= {};
 
     // Exporta el contenido
-    readeds.services.push(content);
+    loadeds.services.push(content);
 };
 
 // Exporta los archivos cargados
-module.exports = readeds;
+module.exports = loadeds;
