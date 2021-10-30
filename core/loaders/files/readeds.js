@@ -37,7 +37,7 @@ for (const _folder of folders.commands.inputs) {
     content.intents     ??= [];
     content.flags       ??= [];
 
-    content.schema                 ??= {};
+    content.schema                   = {};
     content.schema.name              = content.name;
     content.schema.description       = content.description;
     content.schema.options           = content.options;
@@ -61,7 +61,7 @@ for (const _folder of folders.commands.messages) {
     content.intents ??= [];
     content.flags   ??= [];
 
-    content.schema                 ??= {};
+    content.schema                   = {};
     content.schema.name              = content.name;
     content.schema.type              = 'MESSAGE';
     content.schema.defaultPermission = true;
@@ -84,7 +84,7 @@ for (const _folder of folders.commands.users) {
     content.flags   ??= [];
 
     // Configura el contenido extra
-    content.schema                 ??= {};
+    content.schema                   = {};
     content.schema.name              = content.name;
     content.schema.type              = 'USER';
     content.schema.defaultPermission = true;

@@ -6,9 +6,9 @@ Este es un handler mayormente modular para crear Bots con ``Discord.JS``
 | dotenv                | 10.0.0  |
 | megadb                | 3.4.0   |
 
-## Estructura
+# Estructura de los archivos
 
-#### Guardado
+### Guardado de los archivos
 
 Los archivos deben estar dentro de una carpeta y contener un archivo llamado ``main.js``
 
@@ -47,7 +47,7 @@ events\
 
 ```
 
-#### Comando para entradas
+### Creacion de comando para entradas
 
 ```js
 const discord = require('discord.js');
@@ -101,7 +101,7 @@ module.exports = {
 };
 ```
 
-#### Comando para mensajes
+### Creacion de comando para mensajes
 
 ```js
 const discord = require('discord.js');
@@ -147,7 +147,7 @@ module.exports = {
 };
 ```
 
-#### Comando para usuarios
+### Creacion de comando para usuarios
 
 ```js
 const discord = require('discord.js');
@@ -193,7 +193,7 @@ module.exports = {
 };
 ```
 
-#### Servicio
+### Creacion de servicios
 
 ```js
 module.exports = {
@@ -223,7 +223,7 @@ module.exports = {
 };
 ```
 
-#### Evento
+### Creacion de eventos
 
 ```js
 module.exports = {
@@ -250,18 +250,24 @@ module.exports = {
 };
 ```
 
-## Extra
+# Informacion extra
 
-#### Servicio (Indexer)
+### Indexador de comandos (services/indexer)
 
 Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``Creado`` o ``Editado``
 
 _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzado_
 
-#### Servicio (Priorities)
+### Gestor de prioridades (services/priorities)
 
 Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
 
 _Para especificar que un archivo es prioridad, debe agregar ``priority`` en sus ``flags``_
 
 _Por limitaciones no se pueden identificar como prioridad un evento_
+
+### Flags predefinidos
+
+``priority`` _Solo comandos_ Especifica que se debe ejecutar antes que el resto
+
+``hide`` _Solo comandos_ Especifica que se debe crear la ejecucion de forma oculta (Efimera)

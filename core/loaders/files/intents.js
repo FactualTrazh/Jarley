@@ -15,9 +15,13 @@ const files = readeds.commands.concat(readeds.services).concat(readeds.events);
 for (const _file of files) {
 
     for (const _intent of _file.intents) {
-
-        // Agrega el intent a la cache
-        loadeds.push(_intent);
+        
+        // Verifica si el intent no esta repetido
+        if (!loadeds.includes(_intent)) {
+            
+            // Exporta el intent
+            loadeds.push(_intent);
+        };
     };
 };
 
