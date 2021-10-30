@@ -262,12 +262,9 @@ _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un i
 
 Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
 
-_Para especificar que un archivo es prioridad, debe agregar ``priority`` en sus ``flags``_
-
-_Por limitaciones no se pueden identificar como prioridad un evento_
-
 ### Flags predefinidos
 
-``priority`` _Solo comandos_ Especifica que se debe ejecutar antes que el resto
-
-``hide`` _Solo comandos_ Especifica que se debe crear la ejecucion de forma oculta (Efimera)
+| Nombre   | Descripcion                                                                               |
+|----------|-------------------------------------------------------------------------------------------|
+| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto                  |
+| hide     | _Solo para comandos_, especifica que se debe crear la ejecucion de forma oculta (Efimera) |
