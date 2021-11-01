@@ -2,7 +2,7 @@ Este es un handler mayormente modular para crear Bots con la libreria ``discord.
 
 | Dependencias | Version |
 |--------------|---------|
-| discord.js   | 13.3.0  |
+| discord.js   | 13.3.1  |
 | dotenv       | 10.0.0  |
 | megadb       | 3.4.0   |
 
