@@ -3,22 +3,22 @@
 const fs   = require('fs');
 const path = require('path');
 
-const directories = require('./directories.js');
+const paths = require('./paths.js');
 
 const folders = {
 
     commands: {
 
-        inputs:   fs.readdirSync(directories.commands.inputs).filter((x) => !x.startsWith('.')),
-        messages: fs.readdirSync(directories.commands.messages).filter((x) => !x.startsWith('.')),
-        users:    fs.readdirSync(directories.commands.users).filter((x) => !x.startsWith('.'))
+        inputs:   fs.readdirSync(paths.commands.inputs).filter((_value) => !_value.startsWith('.')),
+        messages: fs.readdirSync(paths.commands.messages).filter((_value) => !_value.startsWith('.')),
+        users:    fs.readdirSync(paths.commands.users).filter((_value) => !_value.startsWith('.'))
     },
 
-    events:   fs.readdirSync(directories.events).filter((x) => !x.startsWith('.')),
-    services: fs.readdirSync(directories.services).filter((x) => !x.startsWith('.'))
+    events:   fs.readdirSync(paths.events).filter((_value) => !_value.startsWith('.')),
+    services: fs.readdirSync(paths.services).filter((_value) => !_value.startsWith('.'))
 };
 
-const loadeds = {
+const filesCache = {
 
     commands: [],
     events:   [],
@@ -29,17 +29,16 @@ const loadeds = {
 for (const _folder of folders.commands.inputs) {
 
     // Crea la ruta exacta del archivo
-    const filePath = path.join(directories.commands.inputs, _folder, 'main.js');
+    const filePath = path.join(paths.commands.inputs, _folder, 'main.js');
 
     // Carga el contenido
     const content = require(filePath);
 
     // Configura el contenido
-    content.name              = _folder;
-    content.description     ??= 'Descripcion no especificada';
-    content.type              = 'CHAT_INPUT';
-    content.defaultPermission = true;
-    content.options         ??= [];
+    content.name           = _folder;
+    content.type           = 'input';
+    content.description  ??= 'Descripcion no especificada';
+    content.options      ??= [];
 
     content.intents ??= [];
     content.flags   ??= [];
@@ -49,11 +48,11 @@ for (const _folder of folders.commands.inputs) {
     content.schema.name              = content.name;
     content.schema.description       = content.description;
     content.schema.options           = content.options;
-    content.schema.type              = content.type;
-    content.schema.defaultPermission = content.defaultPermission;
+    content.schema.type              = 'CHAT_INPUT';
+    content.schema.defaultPermission = true;
 
     // Exporta el contenido
-    loadeds.commands.push(content);
+    filesCache.commands.push(content);
 
     // Elimina el archivo de la cache
     delete require.cache[filePath];
@@ -63,15 +62,14 @@ for (const _folder of folders.commands.inputs) {
 for (const _folder of folders.commands.messages) {
     
     // Crea la ruta exacta del archivo
-    const filePath = path.join(directories.commands.messages, _folder, 'main.js');
+    const filePath = path.join(paths.commands.messages, _folder, 'main.js');
 
     // Carga el contenido
     const content = require(filePath);
 
     // Configura el contenido
-    content.name              = _folder;
-    content.type              = 'MESSAGE';
-    content.defaultPermission = true;
+    content.name = _folder;
+    content.type = 'message';
 
     content.intents ??= [];
     content.flags   ??= [];
@@ -79,11 +77,11 @@ for (const _folder of folders.commands.messages) {
 
     content.schema                   = {};
     content.schema.name              = content.name;
-    content.schema.type              = content.type;
-    content.schema.defaultPermission = content.defaultPermission;
+    content.schema.type              = 'MESSAGE';
+    content.schema.defaultPermission = true;
 
     // Exporta el contenido
-    loadeds.commands.push(content);
+    filesCache.commands.push(content);
     
     // Elimina el archivo de la cache
     delete require.cache[filePath];
@@ -93,15 +91,14 @@ for (const _folder of folders.commands.messages) {
 for (const _folder of folders.commands.users) {
 
     // Crea la ruta exacta del archivo
-    const filePath = path.join(directories.commands.messages, _folder, 'main.js');
+    const filePath = path.join(paths.commands.users, _folder, 'main.js');
     
     // Carga el contenido
     const content = require(filePath);
 
     // Configura el contenido
-    content.name              = _folder;
-    content.type              = 'USER';
-    content.defaultPermission = true;
+    content.name = _folder;
+    content.type = 'user';
 
     content.intents ??= [];
     content.flags   ??= [];
@@ -109,11 +106,11 @@ for (const _folder of folders.commands.users) {
 
     content.schema                   = {};
     content.schema.name              = content.name;
-    content.schema.type              = content.type;
-    content.schema.defaultPermission = content.defaultPermission;
+    content.schema.type              = 'USER';
+    content.schema.defaultPermission = true;
 
     // Exporta el contenido
-    loadeds.commands.push(content);
+    filesCache.commands.push(content);
 
     // Elimina el archivo de la cache
     delete require.cache[filePath];
@@ -123,7 +120,7 @@ for (const _folder of folders.commands.users) {
 for (const _folder of folders.events) {
 
     // Crea la ruta exacta del archivo
-    const filePath = path.join(directories.events, _folder, 'main.js');
+    const filePath = path.join(paths.events, _folder, 'main.js');
 
     // Carga el contenido
     const content = require(filePath);
@@ -136,7 +133,7 @@ for (const _folder of folders.events) {
     content.event   ??= function () {};
 
     // Exporta el contenido
-    loadeds.events.push(content);
+    filesCache.events.push(content);
     
     // Elimina el archivo de la cache
     delete require.cache[filePath];
@@ -146,7 +143,7 @@ for (const _folder of folders.events) {
 for (const _folder of folders.services) {
 
     // Crea la ruta exacta del archivo
-    const filePath = path.join(directories.services, _folder, 'main.js');
+    const filePath = path.join(paths.services, _folder, 'main.js');
 
     // Carga el contenido
     const content = require(filePath);
@@ -159,11 +156,11 @@ for (const _folder of folders.services) {
     content.events  ??= {};
 
     // Exporta el contenido
-    loadeds.services.push(content);
+    filesCache.services.push(content);
     
     // Elimina el archivo de la cache
     delete require.cache[filePath];
 };
 
 // Exporta los archivos cargados
-module.exports = loadeds;
+module.exports = filesCache;

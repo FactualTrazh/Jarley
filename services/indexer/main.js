@@ -6,7 +6,7 @@ module.exports = {
 
         ready: async function ({ client, loaders, databases, bases, utils }) {
 
-            const loadedCommands = loaders.readeds.commands.map((x) => x.schema);
+            const loadedCommands = loaders.readeds.commands.map((_value) => _value.schema);
             const botCommands    = await client.application.commands.fetch();
 
             function index () {

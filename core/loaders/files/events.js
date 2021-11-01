@@ -2,19 +2,19 @@
 
 const readeds = require('./readeds.js');
 
-const loadeds = {};
+const eventsCache = {};
 
 for (const _file of readeds.events) {
 
-    const commands = readeds.commands.filter((x) => x.events[_file.name]);
-    const services = readeds.services.filter((x) => x.events[_file.name]);
+    const commands = readeds.commands.filter((_value) => _value.events[_file.name]);
+    const services = readeds.services.filter((_value) => _value.events[_file.name]);
     const all      = commands.concat(services);
         
-    // Verifica si el evento no es requerido
-    if (all.length > 0) {
+    // Verifica si el evento es requerido
+    if (all.length) {
 
         // Exporta el evento
-        loadeds[_file.name] = {
+        eventsCache[_file.name] = {
 
             commands: commands,
             services: services,
@@ -24,4 +24,4 @@ for (const _file of readeds.events) {
 };
 
 // Exporta los eventos
-module.exports = loadeds;
+module.exports = eventsCache;

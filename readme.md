@@ -2,7 +2,7 @@ Este es un handler mayormente modular para crear Bots con la libreria ``discord.
 
 | Dependencias | Version |
 |--------------|---------|
-| discord.js   | 13.2.0  |
+| discord.js   | 13.3.0  |
 | dotenv       | 10.0.0  |
 | megadb       | 3.4.0   |
 
@@ -57,14 +57,17 @@ module.exports = {
     // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
-    // La descripcion del comando.
-    description: 'Comando de prueba',
+    // El tipo de comando (Se crea automaticamente)
+    // type: 'input',
 
-    // Las opciones del comando.
-    options: [],
+    // La descripcion del comando
+    description: 'Comando de prueba',
 
     // Los intents que necesita el comando.
     intents: [],
+    
+    // Las banderas para expecificar valores.
+    flags: [],
 
     // El esquema del comando (Se crea automaticamente).
     // schema: {
@@ -75,9 +78,6 @@ module.exports = {
     //  type: 'INPUT_CHAT',
     //  defaultPermission: true
     //},
-    
-    // Las banderas para expecificar valores.
-    flags: [],
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -111,8 +111,14 @@ module.exports = {
     // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
+    // El tipo de comando (Se crea automaticamente)
+    // type: 'message',
+
     // Los intents que necesita el comando.
     intents: [],
+    
+    // Las banderas para expecificar valores.
+    flags: [],
 
     // El esquema del comando (Se crea automaticamente).
     // schema: {
@@ -121,9 +127,6 @@ module.exports = {
     //  type: 'MESSAGE',
     //  defaultPermission: true
     //},
-    
-    // Las banderas para expecificar valores.
-    flags: [],
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -157,8 +160,14 @@ module.exports = {
     // El nombre del comando (Se utiliza el nombre de la carpeta automaticamente).
     // name: 'test',
 
+    // El tipo de comando (Se crea automaticamente)
+    // type: 'user',
+
     // Los intents que necesita el comando.
     intents: [],
+    
+    // Las banderas para expecificar valores.
+    flags: [],
 
     // El esquema del comando (Se crea automaticamente).
     // schema: {
@@ -167,9 +176,6 @@ module.exports = {
     //  type: 'USER',
     //  defaultPermission: true
     //},
-    
-    // Las banderas para expecificar valores.
-    flags: [],
 
     // Los eventos a utilizar de la carpeta "events".
     events: {
@@ -264,6 +270,9 @@ Este servicio funciona para organizar los archivos cargados por los ``loaders`` 
 
 # Banderas predefinidas
 
-| Nombre   | Descripcion                                                              |
-|----------|--------------------------------------------------------------------------|
-| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto |
+| Nombre   | Descripcion                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto    |
+| hide     | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
+| dm       | _Solo para comandos_, especifica que se puede ejecutar en DM's              |
+| guild    | _Solo para comandos_, especifica que se puede ejecutar en Servidores        |
