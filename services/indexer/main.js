@@ -12,8 +12,13 @@ module.exports = {
             function index () {
     
                 client.application.commands.set(loadedCommands)
-                .then(() => console.log('Indexado de comandos finalizado'))
-                .catch((error) => console.error('Indexado de comandos fallido', error));
+                .then(() => console.log('Indexacion finalizada'))
+                .catch((error) => {
+                    
+                    console.log('Indexacion fallida');
+                    console.log();
+                    console.log(error);
+                });
             };
 
             // Fuerza el indexado

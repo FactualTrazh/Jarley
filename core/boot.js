@@ -6,21 +6,22 @@ const loaders   = require('./loaders/exports.js');
 
 module.exports = function (client) {
 
-    for (const _event in loaders.events) {
+    for (const _event of loaders.readeds.events) {
 
-        // Obtiene el evento entre los cargados
-        const file = loaders.readeds.events.find((x) => x.name === _event);
+        // Verifica si fue cargado
+        if (loaders.events[_event.name]) {
 
-        const content = {
+            const content = {
             
-            client:    client,
-            loaders:   loaders,
-            databases: databases,
-            bases:     bases,
-            utils: new bases.utils(file)
+                client:    client,
+                loaders:   loaders,
+                databases: databases,
+                bases:     bases,
+                utils: new bases.utils(_event)
+            };
+    
+            // Carga el evento
+            _event.event(content);
         };
-
-        // Carga los eventos
-        file.event(content);
     };
 };

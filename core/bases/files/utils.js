@@ -115,17 +115,7 @@ module.exports = class {
         if (typeof content === 'bigint') return list[content];
     
         // Si es Array
-        if (Array.isArray(content)) {
-
-            const cache = [];
-
-            for (const inContent of content) {
-
-                cache.push(this.perms(inContent));
-            };
-
-            return cache;
-        };
+        if (Array.isArray(content)) return content.map((x) => this.perms(x));
     
         // Si no coincide con nada 
         return null;

@@ -10,8 +10,10 @@ module.exports = {
     
         command: function ({ client, event, loaders, databases, bases, utils }) {
 
+            const userOption = event.options.getUser('user');
+
             const messageEmbed = new discord.MessageEmbed()
-            .setDescription(`El **ID** de este canal es **${event.channel.id}**`)
+            .setDescription(`El **ID** de este usuario es **${userOption.id}**`)
             .setColor('#FFFFFF');
     
             event.editReply({ embeds: [ messageEmbed ] }).catch(() => {});

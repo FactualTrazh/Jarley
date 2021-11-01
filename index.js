@@ -12,7 +12,7 @@ dotenv.config();
 const client = new discord.Client({
 
     intents: loaders.intents,
-    allowMentions: { parsed: [] },
+    allowMentions: { parsed: [] }
 });
 
 // Carga los archivos
@@ -21,4 +21,9 @@ require('./core/boot.js')(client);
 // Conecta el cliente
 client.login(process.env.token)
 .then(() => console.log('Conexion establecida'))
-.catch((error) => console.error('Conexion fallida', error));
+.catch((error) => {
+
+    console.log('Conexion fallida');
+    console.log();
+    console.log(error);
+});

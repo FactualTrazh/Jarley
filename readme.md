@@ -1,10 +1,10 @@
-Este es un handler mayormente modular para crear Bots con ``Discord.JS``
+Este es un handler mayormente modular para crear Bots con la libreria ``discord.js``
 
-| Dependencias          | Version |
-|-----------------------|---------|
-| discord.js            | 13.2.0  |
-| dotenv                | 10.0.0  |
-| megadb                | 3.4.0   |
+| Dependencias | Version |
+|--------------|---------|
+| discord.js   | 13.2.0  |
+| dotenv       | 10.0.0  |
+| megadb       | 3.4.0   |
 
 # Estructura de los archivos
 
@@ -250,31 +250,20 @@ module.exports = {
 };
 ```
 
-# Informacion extra
+# Servicios prefabricados 
 
-### Indexacion de comandos
+### Indexer
 
 Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``Creado`` o ``Editado``
 
 _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzado_
 
-_Ubicado en ``services/indexer``_
-
-### Gestion de prioridades
+### Priorities
 
 Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
 
-_Ubicado en ``services/priorities``_
+# Banderas predefinidas
 
-### Carga de eventos
-
-Los eventos que no sean requeridos no se cargaran
-
-_Ubicado en ``core/loaders/files/events.js``_
-
-### Flags predefinidos
-
-| Nombre   | Descripcion                                                                               |
-|----------|-------------------------------------------------------------------------------------------|
-| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto                  |
-| hide     | _Solo para comandos_, especifica que se debe crear la ejecucion de forma oculta (Efimera) |
+| Nombre   | Descripcion                                                              |
+|----------|--------------------------------------------------------------------------|
+| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto |

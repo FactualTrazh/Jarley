@@ -26,14 +26,17 @@ module.exports = {
                     };
 
                     if (event.commandName === _file.name
+                    &&  _file.type        === 'CHAT_INPUT'
                     &&  await defer(content)) {
 
                         try {
                     
                             _file.events[utils.file.name](content);
-                        } catch (err) {
-        
-                            console.log(err);
+                        } catch (error) {
+
+                            console.log('Ejecucion fallida');
+                            console.log();
+                            console.log(error);
                         };
                     };
                 };
@@ -56,15 +59,17 @@ module.exports = {
                     };
 
                     if (event.commandName === _file.name
-                    &&  event.targetType  === _file.type
+                    &&  _file.type        === 'MESSAGE'
                     &&  await defer(content)) {
 
                         try {
                     
                             _file.events[utils.file.name](content);
-                        } catch (err) {
-        
-                            console.log(err);
+                        } catch (error) {
+
+                            console.log('Ejecucion fallida');
+                            console.log();
+                            console.log(error);
                         };
                     };
                 };
@@ -87,15 +92,17 @@ module.exports = {
                     };
 
                     if (event.commandName === _file.name
-                    &&  event.targetType  === _file.type
+                    &&  _file.type        === 'USER'
                     &&  await defer(content)) {
 
                         try {
                     
                             _file.events[utils.file.name](content);
-                        } catch (err) {
-        
-                            console.log(err);
+                        } catch (error) {
+
+                            console.log('Ejecucion fallida');
+                            console.log();
+                            console.log(error);
                         };
                     };
                 };
