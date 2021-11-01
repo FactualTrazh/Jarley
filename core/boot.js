@@ -8,20 +8,19 @@ module.exports = function (client) {
 
     for (const _event of loaders.readeds.events) {
 
-        // Verifica si fue cargado
-        if (loaders.events[_event.name]) {
-
-            const content = {
+        // Salta la carga si el evento no fue cargado
+        if (!loaders.events[_event.name]) continue;
+        
+        const content = {
             
-                client:    client,
-                loaders:   loaders,
-                databases: databases,
-                bases:     bases,
-                utils: new bases.utils(_event)
-            };
-    
-            // Carga el evento
-            _event.event(content);
+            client:    client,
+            loaders:   loaders,
+            databases: databases,
+            bases:     bases,
+            utils: new bases.utils(_event)
         };
+    
+        // Carga el evento
+        _event.event(content);
     };
 };

@@ -9,7 +9,7 @@ module.exports = {
     flags: [ 'dm', 'guild' ],
 
     events: {
-    
+        
         command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()

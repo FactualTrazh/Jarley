@@ -262,7 +262,7 @@ module.exports = {
 
 Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``Creado`` o ``Editado``
 
-_Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzado_
+_Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzoso_
 
 ### Priorities
 

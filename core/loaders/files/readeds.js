@@ -9,13 +9,13 @@ const folders = {
 
     commands: {
 
-        inputs:   fs.readdirSync(paths.commands.inputs).filter((_value) => !_value.startsWith('.')),
-        messages: fs.readdirSync(paths.commands.messages).filter((_value) => !_value.startsWith('.')),
-        users:    fs.readdirSync(paths.commands.users).filter((_value) => !_value.startsWith('.'))
+        inputs:   fs.readdirSync(paths.commands.inputs).filter((v) => !v.startsWith('.')),
+        messages: fs.readdirSync(paths.commands.messages).filter((v) => !v.startsWith('.')),
+        users:    fs.readdirSync(paths.commands.users).filter((v) => !_value.startsWith('.'))
     },
 
-    events:   fs.readdirSync(paths.events).filter((_value) => !_value.startsWith('.')),
-    services: fs.readdirSync(paths.services).filter((_value) => !_value.startsWith('.'))
+    events:   fs.readdirSync(paths.events).filter((v) => !v.startsWith('.')),
+    services: fs.readdirSync(paths.services).filter((v) => !v.startsWith('.'))
 };
 
 const filesCache = {
@@ -35,10 +35,10 @@ for (const _folder of folders.commands.inputs) {
     const content = require(filePath);
 
     // Configura el contenido
-    content.name           = _folder;
-    content.type           = 'input';
-    content.description  ??= 'Descripcion no especificada';
-    content.options      ??= [];
+    content.name          = _folder;
+    content.type          = 'input';
+    content.description ??= 'Descripcion no especificada';
+    content.options     ??= [];
 
     content.intents ??= [];
     content.flags   ??= [];

@@ -20,11 +20,11 @@ module.exports = {
                 try {
 
                     _file.events[utils.file.name](content);
-                } catch (error) {
+                } catch (err) {
 
                     console.log('Ejecucion fallida');
                     console.log();
-                    console.log(error);
+                    console.log(err);
                 };
             };
         });

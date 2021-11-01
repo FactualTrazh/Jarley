@@ -115,7 +115,7 @@ module.exports = class {
         if (typeof content === 'bigint') return list[content];
     
         // Si es Array
-        if (Array.isArray(content)) return content.map((_value) => this.perms(_value));
+        if (Array.isArray(content)) return content.map((v) => this.perms(v));
     
         // Si no coincide con nada 
         return null;

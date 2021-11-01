@@ -21,7 +21,6 @@ if (!fs.existsSync(pathsCache.commands.inputs)) fs.mkdirSync(pathsCache.commands
 if (!fs.existsSync(pathsCache.commands.messages)) fs.mkdirSync(pathsCache.commands.messages, { recursive: true });
 if (!fs.existsSync(pathsCache.commands.users)) fs.mkdirSync(pathsCache.commands.users, { recursive: true });
 
-
 if (!fs.existsSync(pathsCache.events)) fs.mkdirSync(pathsCache.events, { recursive: true });
 if (!fs.existsSync(pathsCache.services)) fs.mkdirSync(pathsCache.services, { recursive: true });
 

@@ -6,18 +6,18 @@ module.exports = {
 
         ready: async function ({ client, loaders, databases, bases, utils }) {
 
-            const loadedCommands = loaders.readeds.commands.map((_value) => _value.schema);
+            const loadedCommands = loaders.readeds.commands.map((v) => v.schema);
             const botCommands    = await client.application.commands.fetch();
 
             function index () {
     
                 client.application.commands.set(loadedCommands)
                 .then(() => console.log('Indexacion finalizada'))
-                .catch((error) => {
+                .catch((err) => {
                     
                     console.log('Indexacion fallida');
                     console.log();
-                    console.log(error);
+                    console.log(err);
                 });
             };
 
@@ -31,7 +31,7 @@ module.exports = {
             for (const _file of botCommands.values()) {
 
                 // Obtiene el comando
-                const findCommand = loadedCommands.find((x) => x.name === _file.name);
+                const findCommand = loadedCommands.find((v) => v.name === _file.name);
 
                 // Verifica si se obtuvo el comando
                 if (!findCommand) return index();
@@ -46,7 +46,7 @@ module.exports = {
                     for (const _option of _file.options) {
 
                         // Obtiene la opcion
-                        const findOption = findCommand.options.find((x) => x.name === _option.name);
+                        const findOption = findCommand.options.find((v) => v.name === _option.name);
 
                         // Verifica si se obtuvo la opcion
                         if (!findOption) return index();

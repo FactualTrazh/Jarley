@@ -21,9 +21,9 @@ require('./core/boot.js')(client);
 // Conecta el cliente
 client.login(process.env.token)
 .then(() => console.log('Conexion establecida'))
-.catch((error) => {
+.catch((err) => {
 
     console.log('Conexion fallida');
     console.log();
-    console.log(error);
+    console.log(err);
 });
