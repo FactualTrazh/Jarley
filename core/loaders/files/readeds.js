@@ -11,7 +11,7 @@ const folders = {
 
         inputs:   fs.readdirSync(paths.commands.inputs).filter((v) => !v.startsWith('.')),
         messages: fs.readdirSync(paths.commands.messages).filter((v) => !v.startsWith('.')),
-        users:    fs.readdirSync(paths.commands.users).filter((v) => !_value.startsWith('.'))
+        users:    fs.readdirSync(paths.commands.users).filter((v) => !v.startsWith('.'))
     },
 
     events:   fs.readdirSync(paths.events).filter((v) => !v.startsWith('.')),

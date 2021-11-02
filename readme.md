@@ -270,9 +270,8 @@ Este servicio funciona para organizar los archivos cargados por los ``loaders`` 
 
 # Banderas predefinidas
 
-| Nombre   | Descripcion                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| priority | _Solo para comandos_, especifica que se debe ejecutar antes que el resto    |
-| hide     | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
-| dm       | _Solo para comandos_, especifica que se puede ejecutar en DM's              |
-| guild    | _Solo para comandos_, especifica que se puede ejecutar en Servidores        |
+| Nombre | Descripcion                                                                 |
+|--------|-----------------------------------------------------------------------------|
+| hide   | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
+| user   | _Solo para comandos_, especifica que se puede ejecutar en DMs               |
+| server | _Solo para comandos_, especifica que se puede ejecutar en Servidores        |

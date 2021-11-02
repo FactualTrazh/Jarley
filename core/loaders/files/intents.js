@@ -10,11 +10,12 @@ for (const _file of files) {
 
     for (const _intent of _file.intents) {
         
-        // Salta la carga si el intent esta repetido
-        if (intentsCache.includes(_intent)) continue;
-            
-        // Carga el intent
-        intentsCache.push(_intent);
+        // Verifica si el intent no esta repetido
+        if (!intentsCache.includes(_intent)) {
+
+            // Carga el intent
+            intentsCache.push(_intent);
+        }; 
     };
 };
 

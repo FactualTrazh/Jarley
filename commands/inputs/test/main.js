@@ -6,7 +6,7 @@ module.exports = {
 
     description: 'Comando de prueba',
     
-    flags: [ 'dm', 'guild' ],
+    flags: [ 'user', 'server' ],
 
     events: {
         
