@@ -268,4 +268,6 @@ _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un i
 
 | Nombre    | Descripcion                                                                 |
 |-----------|-----------------------------------------------------------------------------|
+| user      | _Solo para comandos_, especifica que se puede ejecutar en MDs               |
+| server    | _Solo para comandos_, especifica que se puede ejecutar en servidores        |
 | ephemeral | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |

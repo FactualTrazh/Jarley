@@ -2,6 +2,7 @@
 
 module.exports = async function ({ client, event, loaders, databases, bases, utils }) {
 
+    // Las banderas
     const ephemeralFlag = utils.file.flags.includes('ephemeral');
 
     try {

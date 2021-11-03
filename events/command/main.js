@@ -1,15 +1,13 @@
 'use strict';
 
-const reply = require('./files/reply.js');
+const access = require('./files/access.js');
+const reply  = require('./files/reply.js');
 
 module.exports = {
 
     event: function ({ client, loaders, databases, bases, utils }) {
 
         client.on('interactionCreate', async (event) => {
-
-            // Verifica si la interaccion se esta ejecutando en un servidor
-            if (!event.inGuild()) return;
 
             // Comandos
             if (event.isCommand()) {
@@ -28,7 +26,8 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'input'
-                    &&  await reply(content)) {
+                    &&  await reply(content)
+                    &&  access(content)) {
 
                         // Carga el evento del archivo
                         try {
@@ -36,6 +35,10 @@ module.exports = {
                             _file.events[utils.file.name](content);
                         } catch (err) {
 
+                            // Responde a la ejecucion con un mensaje de error
+                            event.editReply({ content: '```Hubo un error mientras se ejecutaba el comando```' }).catch(() => {});
+
+                            // Muestra el error en la consola
                             console.log('Ejecucion fallida');
                             console.log();
                             console.log(err);
@@ -65,7 +68,8 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'message'
-                    &&  await reply(content)) {
+                    &&  await reply(content)
+                    &&  access(content)) {
 
                         // Carga el evento del archivo
                         try {
@@ -73,6 +77,10 @@ module.exports = {
                             _file.events[utils.file.name](content);
                         } catch (err) {
 
+                            // Responde a la ejecucion con un mensaje de error
+                            event.editReply({ content: '```Hubo un error mientras se ejecutaba el comando```' }).catch(() => {});
+
+                            // Muestra el error en la consola
                             console.log('Ejecucion fallida');
                             console.log();
                             console.log(err);
@@ -102,7 +110,8 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'user'
-                    &&  await reply(content)) {
+                    &&  await reply(content)
+                    &&  access(content)) {
 
                         // Carga el evento del archivo
                         try {
@@ -110,6 +119,10 @@ module.exports = {
                             _file.events[utils.file.name](content);
                         } catch (err) {
 
+                            // Responde a la ejecucion con un mensaje de error
+                            event.editReply({ content: '```Hubo un error mientras se ejecutaba el comando```' }).catch(() => {});
+
+                            // Muestra el error en la consola
                             console.log('Ejecucion fallida');
                             console.log();
                             console.log(err);
