@@ -264,10 +264,6 @@ Este servicio funciona para indexar los ``Comandos`` que alla ``Eliminado``, ``C
 
 _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un indexado forzoso_
 
-### Priorities
-
-Este servicio funciona para organizar los archivos cargados por los ``loaders`` con forme a su ``Prioridad``
-
 # Banderas predefinidas
 
 | Nombre    | Descripcion                                                                 |
