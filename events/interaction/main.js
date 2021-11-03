@@ -12,14 +12,15 @@ module.exports = {
 
                 const content = {
 
-                    client:    client,
-                    event:     event,
-                    loaders:   loaders,
-                    databases: databases,
-                    bases:     bases,
+                    client,
+                    event,
+                    loaders,
+                    databases,
+                    bases,
                     utils: new bases.utils(_file)
                 };
 
+                // Carga el evento del archivo
                 try {
 
                     _file.events[utils.file.name](content);

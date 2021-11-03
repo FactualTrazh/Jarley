@@ -82,12 +82,12 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto  | client    | El cliente.
-        // Objeto  | event     | El evento.
-        // Objeto  | loaders   | El cargador.
-        // Objeto  | databases | El gestor de archivos.
-        // Objeto  | bases     | El gestor de bases. 
-        // Objeto  | utils     | Las herramientas.
+        // client    | El cliente.
+        // event     | El evento.
+        // loaders   | El cargador.
+        // databases | El gestor de archivos.
+        // bases     | El gestor de bases. 
+        // utils     | Las herramientas.
         command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
@@ -131,12 +131,12 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto  | client    | El cliente.
-        // Objeto  | event     | El evento.
-        // Objeto  | loaders   | El cargador.
-        // Objeto  | databases | El gestor de archivos.
-        // Objeto  | bases     | El gestor de bases. 
-        // Objeto  | utils     | Las herramientas.
+        // client    | El cliente.
+        // event     | El evento.
+        // loaders   | El cargador.
+        // databases | El gestor de archivos.
+        // bases     | El gestor de bases. 
+        // utils     | Las herramientas.
         command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
@@ -180,12 +180,12 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto  | client    | El cliente.
-        // Objeto  | event     | El evento.
-        // Objeto  | loaders   | El cargador.
-        // Objeto  | databases | El gestor de archivos.
-        // Objeto  | bases     | El gestor de bases. 
-        // Objeto  | utils     | Las herramientas.
+        // client    | El cliente.
+        // event     | El evento.
+        // loaders   | El cargador.
+        // databases | El gestor de archivos.
+        // bases     | El gestor de bases. 
+        // utils     | Las herramientas.
         command: function ({ client, event, loaders, databases, bases, utils }) {
 
             const messageEmbed = new discord.MessageEmbed()
@@ -216,11 +216,11 @@ module.exports = {
     // Los eventos a utilizar de la carpeta "events".
     events: {
 
-        // Objeto  | client    | El cliente.
-        // Objeto  | loaders   | El cargador.
-        // Objeto  | databases | El gestor de archivos.
-        // Objeto  | bases     | El gestor de bases. 
-        // Objeto  | utils     | Las herramientas.
+        // client    | El cliente.
+        // loaders   | El cargador.
+        // databases | El gestor de archivos.
+        // bases     | El gestor de bases. 
+        // utils     | Las herramientas.
         ready: function ({ client, loaders, databases, bases, utils }) {
 
             console.log(`Servicio ${utils.file.name} ejecutado`);
@@ -244,11 +244,11 @@ module.exports = {
     flags: [],
 
     // Funcion que se ejecuta al ser cargado el evento.
-    // Objeto  | client    | El cliente.
-    // Objeto  | loaders   | El cargador.
-    // Objeto  | databases | El gestor de archivos.
-    // Objeto  | bases     | El gestor de bases. 
-    // Objeto  | utils     | Las herramientas.
+    // client    | El cliente.
+    // loaders   | El cargador.
+    // databases | El gestor de archivos.
+    // bases     | El gestor de bases. 
+    // utils     | Las herramientas.
     event: function ({ client, loaders, databases, bases, utils }) {
 
         console.log(`Evento ${utils.file.name} ejecutado`);

@@ -2,9 +2,11 @@
 
 module.exports = async function ({ client, event, loaders, databases, bases, utils }) {
 
+    const ephemeralFlag = utils.file.flags.includes('ephemeral');
+
     try {
 
-        await event.deferReply({ ephemeral: utils.file.flags.includes('ephemeral') });
+        await event.deferReply({ ephemeral: ephemeralFlag });
     } catch {
 
         return false;

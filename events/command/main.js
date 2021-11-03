@@ -8,6 +8,7 @@ module.exports = {
 
         client.on('interactionCreate', async (event) => {
 
+            // Verifica si la interaccion se esta ejecutando en un servidor
             if (!event.inGuild()) return;
 
             // Comandos
@@ -17,11 +18,11 @@ module.exports = {
 
                     const content = {
 
-                        client:    client,
-                        event:     event,
-                        loaders:   loaders,
-                        databases: databases,
-                        bases:     bases,
+                        client,
+                        event,
+                        loaders,
+                        databases,
+                        bases,
                         utils: new bases.utils(_file)
                     };
 
@@ -29,6 +30,7 @@ module.exports = {
                     &&  _file.type        === 'input'
                     &&  await reply(content)) {
 
+                        // Carga el evento del archivo
                         try {
                     
                             _file.events[utils.file.name](content);
@@ -38,6 +40,9 @@ module.exports = {
                             console.log();
                             console.log(err);
                         };
+
+                        // Detiene el bucle porque ya encontro el archivo
+                        break;
                     };
                 };
             };
@@ -50,11 +55,11 @@ module.exports = {
 
                     const content = {
 
-                        client:    client,
-                        event:     event,
-                        loaders:   loaders,
-                        databases: databases,
-                        bases:     bases,
+                        client,
+                        event,
+                        loaders,
+                        databases,
+                        bases,
                         utils: new bases.utils(_file)
                     };
 
@@ -62,6 +67,7 @@ module.exports = {
                     &&  _file.type        === 'message'
                     &&  await reply(content)) {
 
+                        // Carga el evento del archivo
                         try {
                     
                             _file.events[utils.file.name](content);
@@ -71,6 +77,9 @@ module.exports = {
                             console.log();
                             console.log(err);
                         };
+
+                        // Detiene el bucle porque ya encontro el archivo
+                        break;
                     };
                 };
             };
@@ -83,11 +92,11 @@ module.exports = {
 
                     const content = {
 
-                        client:    client,
-                        event:     event,
-                        loaders:   loaders,
-                        databases: databases,
-                        bases:     bases,
+                        client,
+                        event,
+                        loaders,
+                        databases,
+                        bases,
                         utils: new bases.utils(_file)
                     };
 
@@ -95,8 +104,7 @@ module.exports = {
                     &&  _file.type        === 'user'
                     &&  await reply(content)) {
 
-                        console.log(_file);
-
+                        // Carga el evento del archivo
                         try {
                     
                             _file.events[utils.file.name](content);
@@ -106,6 +114,9 @@ module.exports = {
                             console.log();
                             console.log(err);
                         };
+
+                        // Detiene el bucle porque ya encontro el archivo
+                        break;
                     };
                 };
             };
