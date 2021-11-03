@@ -6,7 +6,7 @@ module.exports = {
 
     description: 'Comando de prueba',
 
-    flags: [ 'user', 'server', 'ephemeral' ],
+    flags: [ 'ephemeral' ],
 
     events: {
         

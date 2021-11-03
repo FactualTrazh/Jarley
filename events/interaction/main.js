@@ -6,6 +6,7 @@ module.exports = {
 
         client.on('interactionCreate', (event) => {
 
+            // Verifica si la interaccion esta ejecutandose en un servidor
             if (!event.inGuild()) return;
 
             for (const _file of loaders.events[utils.file.name].all) {

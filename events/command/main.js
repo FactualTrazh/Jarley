@@ -1,13 +1,15 @@
 'use strict';
 
-const access = require('./files/access.js');
-const reply  = require('./files/reply.js');
+const reply = require('./files/reply.js');
 
 module.exports = {
 
     event: function ({ client, loaders, databases, bases, utils }) {
 
         client.on('interactionCreate', async (event) => {
+
+            // Verifica si la interaccion esta ejecutandose en un servidor
+            if (!event.inGuild()) return;
 
             // Comandos
             if (event.isCommand()) {
@@ -26,8 +28,7 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'input'
-                    &&  await reply(content)
-                    &&  access(content)) {
+                    &&  await reply(content)) {
 
                         // Carga el evento del archivo
                         try {
@@ -68,8 +69,7 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'message'
-                    &&  await reply(content)
-                    &&  access(content)) {
+                    &&  await reply(content)) {
 
                         // Carga el evento del archivo
                         try {
@@ -110,8 +110,7 @@ module.exports = {
 
                     if (event.commandName === _file.name
                     &&  _file.type        === 'user'
-                    &&  await reply(content)
-                    &&  access(content)) {
+                    &&  await reply(content)) {
 
                         // Carga el evento del archivo
                         try {
