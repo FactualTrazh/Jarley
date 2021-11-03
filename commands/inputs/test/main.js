@@ -5,8 +5,8 @@ const discord = require('discord.js');
 module.exports = {
 
     description: 'Comando de prueba',
-    
-    flags: [ 'user', 'server' ],
+
+    flags: [ 'ephemeral' ],
 
     events: {
         

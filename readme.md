@@ -270,8 +270,6 @@ Este servicio funciona para organizar los archivos cargados por los ``loaders`` 
 
 # Banderas predefinidas
 
-| Nombre | Descripcion                                                                 |
-|--------|-----------------------------------------------------------------------------|
-| hide   | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
-| user   | _Solo para comandos_, especifica que se puede ejecutar en DMs               |
-| server | _Solo para comandos_, especifica que se puede ejecutar en Servidores        |
+| Nombre    | Descripcion                                                                 |
+|-----------|-----------------------------------------------------------------------------|
+| ephemeral | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |

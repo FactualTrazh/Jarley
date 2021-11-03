@@ -16,9 +16,9 @@ for (const _file of readeds.events) {
         // Carga el evento
         eventsCache[_file.name] = {
     
-            command: commands,
-            service: services,
-            all:     all
+            commands: commands,
+            services: services,
+            all:      all
         };
     };
 };
