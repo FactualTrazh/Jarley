@@ -266,6 +266,8 @@ _Puede que en algunas ocaciones no detecte los cambios, obligandole a hacer un i
 
 # Banderas predefinidas
 
-| Nombre    | Descripcion                                                                 |
-|-----------|-----------------------------------------------------------------------------|
-| ephemeral | _Solo para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
+| Nombre | Descripcion                                                            |
+|--------|------------------------------------------------------------------------|
+| hide   | _Para comandos_, especifica que se debe ejecutar como oculto (Efimero) |
+| server | _Para comandos_, especifica que puede ejecutar en chats de servidores  |
+| user   | _Para comandos_, especifica que puede ejecutar en chats de usuarios    |

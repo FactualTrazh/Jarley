@@ -3,11 +3,11 @@
 module.exports = async function ({ client, event, loaders, databases, bases, utils }) {
 
     // Las banderas
-    const ephemeralFlag = utils.file.flags.includes('ephemeral');
+    const hideFlag = utils.file.flags.includes('hide');
 
     try {
 
-        await event.deferReply({ ephemeral: ephemeralFlag });
+        await event.deferReply({ ephemeral: hideFlag });
     } catch {
 
         return false;

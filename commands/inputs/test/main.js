@@ -6,7 +6,7 @@ module.exports = {
 
     description: 'Comando de prueba',
 
-    flags: [ 'ephemeral' ],
+    flags: [ 'hide', 'server', 'user' ],
 
     events: {
         
@@ -16,7 +16,7 @@ module.exports = {
             .setDescription(`Hola ${event.user.toString()}`)
             .setColor('#FFFFFF');
     
-            event.editReply({ embeds: [ messageEmbed ] }).catch(() => {});
+            event.editReply({ embeds: [ messageEmbed ] });
         }
     }
 };
