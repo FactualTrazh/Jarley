@@ -6,6 +6,7 @@ module.exports = {
 
     intents: [
 
+        discord.Intents.FLAGS.GUILDS,
         discord.Intents.FLAGS.GUILD_MESSAGES
     ],
 

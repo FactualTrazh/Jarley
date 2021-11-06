@@ -1,6 +1,13 @@
 'use strict';
 
+const discord = require('discord.js');
+
 module.exports = {
+
+    intents: [
+        
+        discord.Intents.FLAGS.GUILDS
+    ],
 
     event: function ({ client, loaders, databases, bases, utils }) {
 

@@ -6,6 +6,7 @@ module.exports = {
 
     intents: [
 
+        discord.Intents.FLAGS.GUILDS,
         discord.Intents.FLAGS.GUILD_MESSAGES
     ],
 
@@ -30,7 +31,7 @@ module.exports = {
                     // Carga el evento del archivo
                     _file.events[utils.file.name](content);
                 } catch (err) {
-
+    
                     // Muestra el error en la consola
                     console.log('Ejecucion fallida');
                     console.log();

@@ -5,7 +5,8 @@ const discord = require('discord.js');
 module.exports = {
 
     intents: [
-
+        
+        discord.Intents.FLAGS.GUILDS,
         discord.Intents.FLAGS.GUILD_BANS
     ],
 
