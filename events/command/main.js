@@ -29,9 +29,9 @@ module.exports = {
                     &&  await reply(content)
                     &&  access(content)) {
 
-                        // Carga el evento del archivo
                         try {
                     
+                            // Carga el evento del archivo
                             _file.events[utils.file.name](content);
                         } catch (err) {
 
@@ -71,9 +71,9 @@ module.exports = {
                     &&  await reply(content)
                     &&  access(content)) {
 
-                        // Carga el evento del archivo
                         try {
                     
+                            // Carga el evento del archivo
                             _file.events[utils.file.name](content);
                         } catch (err) {
 
@@ -113,9 +113,9 @@ module.exports = {
                     &&  await reply(content)
                     &&  access(content)) {
 
-                        // Carga el evento del archivo
                         try {
                     
+                            // Carga el evento del archivo
                             _file.events[utils.file.name](content);
                         } catch (err) {
 

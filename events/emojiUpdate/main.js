@@ -25,9 +25,9 @@ module.exports = {
                     utils: new bases.utils(_file)
                 };
 
-                // Carga el evento del archivo
                 try {
 
+                    // Carga el evento del archivo
                     _file.events[utils.file.name](content);
                 } catch (err) {
 
