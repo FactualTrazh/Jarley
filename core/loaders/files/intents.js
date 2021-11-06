@@ -1,20 +1,37 @@
 'use strict';
 
 const readeds = require('./readeds.js');
+const events  = require('./events.js');
 
 const intentsCache = [];
 
-const files = readeds.commands.concat(readeds.services).concat(readeds.events);
+for (const _event of readeds.events) {
 
-for (const _file of files) {
+    // Salta la carga si el evento no fue cargado
+    if (!events[_event.name]) continue;
 
-    for (const _intent of _file.intents) {
-        
-        // Salta la carga si el intent ya fue cargado
+    // Carga los intents del evento
+    for (const _intent of _event.intents) {
+
+        // Salta si el intent ya fue cargado
         if (intentsCache.includes(_intent)) continue;
-        
+
         // Carga el intent
         intentsCache.push(_intent);
+    };
+
+    // Carga los intents de los archivos que contiene el evento
+    for (const _file of events[_event.name].all) {
+
+        // Carga los intents del archivo
+        for (const _intent of _file.intents) {
+
+            // Salta si el intent ya fue cargado
+            if (intentsCache.includes(_intent)) continue;
+
+            // Carga el intent
+            intentsCache.push(_intent);
+        };
     };
 };
 

@@ -9,9 +9,6 @@ module.exports = {
 
         client.on('interactionCreate', async (event) => {
 
-            // Verifica si la interaccion esta ejecutandose en un servidor
-            // if (!event.inGuild()) return;
-
             // Comandos
             if (event.isCommand()) {
 
