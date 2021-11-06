@@ -40,9 +40,10 @@ for (const _folder of folders.commands.inputs) {
     content.description ??= 'Descripcion no especificada';
     content.options     ??= [];
 
-    content.intents ??= [];
-    content.flags   ??= [];
-    content.events  ??= {};
+    content.intents  ??= [];
+    content.partials ??= [];
+    content.flags    ??= [];
+    content.events   ??= {};
 
     content.schema                   = {};
     content.schema.name              = content.name;
@@ -71,9 +72,10 @@ for (const _folder of folders.commands.messages) {
     content.name = _folder;
     content.type = 'message';
 
-    content.intents ??= [];
-    content.flags   ??= [];
-    content.events  ??= {};
+    content.intents  ??= [];
+    content.partials ??= [];
+    content.flags    ??= [];
+    content.events   ??= {};
 
     content.schema                   = {};
     content.schema.name              = content.name;
@@ -100,9 +102,10 @@ for (const _folder of folders.commands.users) {
     content.name = _folder;
     content.type = 'user';
 
-    content.intents ??= [];
-    content.flags   ??= [];
-    content.events  ??= {};
+    content.intents  ??= [];
+    content.partials ??= [];
+    content.flags    ??= [];
+    content.events   ??= {};
 
     content.schema                   = {};
     content.schema.name              = content.name;
@@ -128,9 +131,10 @@ for (const _folder of folders.events) {
     // Configura el contenido
     content.name = _folder;
 
-    content.intents ??= [];
-    content.flags   ??= [];
-    content.event   ??= function () {};
+    content.intents  ??= [];
+    content.partials ??= [];
+    content.flags    ??= [];
+    content.event    ??= function () {};
 
     // Exporta el contenido
     filesCache.events.push(content);
@@ -151,9 +155,10 @@ for (const _folder of folders.services) {
     // Configura el contenido
     content.name = _folder;
 
-    content.intents ??= [];
-    content.flags   ??= [];
-    content.events  ??= {};
+    content.intents  ??= [];
+    content.partials ??= [];
+    content.flags    ??= [];
+    content.events   ??= {};
 
     // Exporta el contenido
     filesCache.services.push(content);

@@ -11,7 +11,8 @@ dotenv.config();
 // Crea el cliente
 const client = new discord.Client({
 
-    intents: loaders.intents,
+    intents:  loaders.intents,
+    partials: loaders.partials,
     allowMentions: { parsed: [] }
 });
 
