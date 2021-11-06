@@ -65,6 +65,9 @@ module.exports = {
 
     // Los intents que necesita el comando.
     intents: [],
+
+    // Los partials que necesita el comando.
+    partials: [],
     
     // Las banderas para expecificar valores.
     flags: [],
@@ -116,6 +119,9 @@ module.exports = {
 
     // Los intents que necesita el comando.
     intents: [],
+
+    // Los partials que necesita el comando.
+    partials: [],
     
     // Las banderas para expecificar valores.
     flags: [],
@@ -165,6 +171,9 @@ module.exports = {
 
     // Los intents que necesita el comando.
     intents: [],
+
+    // Los partials que necesita el comando.
+    partials: [],
     
     // Las banderas para expecificar valores.
     flags: [],
@@ -209,6 +218,9 @@ module.exports = {
 
     // Los intents que necesita el servicio.
     intents: [],
+
+    // Los partials que necesita el servicio.
+    partials: [],
     
     // Las banderas para expecificar valores.
     flags: [],
@@ -239,6 +251,9 @@ module.exports = {
 
     // Los intents que necesita el evento.
     intents: [],
+
+    // Los partials que necesita el evento.
+    partials: [],
     
     // Las banderas para expecificar valores.
     flags: [],
