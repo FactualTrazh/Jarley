@@ -241,7 +241,7 @@ module.exports = {
 
 ### Indexer
 
-Este servicio funciona para indexar las ``Aplicaciones`` que se allan ``Eliminado``, ``Creado`` o ``Editado``
+Funciona para indexar las ``Aplicaciones`` creadas, eliminadas o editadas
 
 > _Puede que en algun momento no se realize la indexacion_
 
