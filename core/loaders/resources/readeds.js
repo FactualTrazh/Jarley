@@ -50,9 +50,12 @@ for (const _folder of folders.applications.commands) {
     content.options     ??= [];
 
     content.priority ??= false;
+    content.users    ??= false;
+    content.servers  ??= false;
+    content.hide     ??= false;
+
     content.intents  ??= [];
     content.partials ??= [];
-    content.flags    ??= [];
     content.events   ??= {};
 
     content.schema                   = {};
@@ -83,9 +86,12 @@ for (const _folder of folders.applications.messages) {
     content.type = 'message';
 
     content.priority ??= false;
+    content.users    ??= false;
+    content.servers  ??= false;
+    content.hide     ??= false;
+
     content.intents  ??= [];
     content.partials ??= [];
-    content.flags    ??= [];
     content.events   ??= {};
 
     content.schema                   = {};
@@ -114,9 +120,12 @@ for (const _folder of folders.applications.users) {
     content.type = 'user';
 
     content.priority ??= false;
+    content.users    ??= false;
+    content.servers  ??= false;
+    content.hide     ??= false;
+
     content.intents  ??= [];
     content.partials ??= [];
-    content.flags    ??= [];
     content.events   ??= {};
 
     content.schema                   = {};
@@ -144,9 +153,9 @@ for (const _folder of folders.events) {
     content.name = _folder;
 
     content.priority ??= false;
+
     content.intents  ??= [];
     content.partials ??= [];
-    content.flags    ??= [];
     content.event    ??= function () {};
 
     // Exporta el contenido
@@ -169,9 +178,9 @@ for (const _folder of folders.services) {
     content.name = _folder;
 
     content.priority ??= false;
+    
     content.intents  ??= [];
     content.partials ??= [];
-    content.flags    ??= [];
     content.events   ??= {};
 
     // Exporta el contenido

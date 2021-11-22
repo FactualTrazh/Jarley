@@ -4,7 +4,8 @@ module.exports = {
 
     description: 'Comando de prueba',
 
-    flags: [ 'server', 'user' ],
+    servers: true,
+    users:   true,
 
     events: {
         

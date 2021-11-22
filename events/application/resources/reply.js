@@ -2,7 +2,7 @@ module.exports = async function ({ client, event, loaders, databases, bases, uti
 
     try {
 
-        await event.deferReply({ ephemeral: utils.file.flags.includes('hide') });
+        await event.deferReply({ ephemeral: utils.file.hide });
     } catch {
 
         return false;

@@ -8,7 +8,7 @@ Este es un handler mayormente modular para crear Bots con la libreria ``discord.
 
 # Estructura
 
-### Orden de archivos
+### Orden de los archivos
 
 Cree las carpetas ``events``, ``services`` y ``applications`` junto a sus subcarpetas ``commands``, ``messages`` y ``users`` para evitar errores
 
@@ -46,7 +46,7 @@ events\
     |__ main.js
 ```
 
-### Crear aplicaciones del tipo comando
+### Crear una aplicacion de tipo comando
 
 El nombre de la carpeta sera el que utilizara la aplicacion (No puede contener espacios)
 
@@ -59,28 +59,34 @@ const discord = require('discord.js');
 
 module.exports = {
 
-    // Nombre (Automatico).
+    // El nombre de la aplicacion (Automatico).
     // name: 'test',
 
-    // Tipo (Automatico).
+    // El tipo de aplicacion (Automatico).
     // type: 'command',
 
-    // Descripcion.
+    // La descripcion de la aplicacion.
     description: 'Hello world',
 
-    // Prioridad.
+    // La prioridad de la aplicacion ante las otras.
     priority: false,
 
-    // Intentos.
+    // Si los usuarios pueden ejecutar la aplicacion en DM's.
+    users: true,
+
+    // Si los usuarios pueden ejecutar la aplicacion en gremios.
+    servers: true,
+
+    // Si la aplicacion puede ejecutarse de forma efimera.
+    hide: false,
+
+    // Los intentos que necesite la aplicacion.
     intents: [],
 
-    // Parciales.
+    // Las parciales que necesite la aplicacion.
     partials: [],
-    
-    // Banderas.
-    flags: [],
 
-    // Esquema (Automatico).
+    // El esquema de la aplicacion (Automatico).
     // schema: {
     //
     //  name: 'test',
@@ -90,12 +96,12 @@ module.exports = {
     //  defaultPermission: true
     //},
 
-    // Eventos.
+    // Los eventos de la aplicacion.
     events: {}
 };
 ```
 
-### Crear aplicaciones del tipo mensaje
+### Crear una aplicacion de tipo mensaje
 
 El nombre de la carpeta sera el que utilizara la aplicacion
 
@@ -108,25 +114,31 @@ const discord = require('discord.js');
 
 module.exports = {
 
-    // Nombre (Automatico).
+    // El nombre de la aplicacion (Automatico).
     // name: 'test',
 
-    // Tipo (Automatico).
+    // El tipo de aplicacion (Automatico).
     // type: 'message',
 
-    // Prioridad.
+    // La prioridad de la aplicacion ante las otras.
     priority: false,
 
-    // Intentos.
+    // Si los usuarios pueden ejecutar la aplicacion en DM's.
+    users: true,
+
+    // Si los usuarios pueden ejecutar la aplicacion en gremios.
+    servers: true,
+
+    // Si la aplicacion puede ejecutarse de forma efimera.
+    hide: false,
+
+    // Los intentos que necesite la aplicacion.
     intents: [],
 
-    // Parciales.
+    // Las parciales que necesite la aplicacion.
     partials: [],
-    
-    // Banderas.
-    flags: [],
 
-    // Esquema (Automatico).
+    // El esquema de la aplicacion (Automatico).
     // schema: {
     //
     //  name: 'test',
@@ -134,12 +146,12 @@ module.exports = {
     //  defaultPermission: true
     //},
 
-    // Eventos.
+    // Los eventos de la aplicacion.
     events: {}
 };
 ```
 
-### Crear aplicaciones del tipo usuario
+### Crear una aplicacion de tipo usuario
 
 El nombre de la carpeta sera el que utilizara la aplicacion
 
@@ -152,25 +164,31 @@ const discord = require('discord.js');
 
 module.exports = {
 
-    // Nombre (Automatico).
+    // El nombre de la aplicacion (Automatico).
     // name: 'test',
 
-    // Tipo (Automatico).
+    // El tipo de aplicacion (Automatico).
     // type: 'user',
 
-    // Prioridad.
+    // La prioridad de la aplicacion ante las otras.
     priority: false,
 
-    // Intentos.
+    // Si los usuarios pueden ejecutar la aplicacion en DM's.
+    users: true,
+
+    // Si los usuarios pueden ejecutar la aplicacion en gremios.
+    servers: true,
+
+    // Si la aplicacion puede ejecutarse de forma efimera.
+    hide: false,
+
+    // Los intentos que necesite la aplicacion.
     intents: [],
 
-    // Parciales.
+    // Las parciales que necesite la aplicacion.
     partials: [],
-    
-    // Banderas.
-    flags: [],
 
-    // Esquema (Automatico).
+    // El esquema de la aplicacion (Automatico).
     // schema: {
     //
     //  name: 'test',
@@ -178,62 +196,56 @@ module.exports = {
     //  defaultPermission: true
     //},
 
-    // Eventos.
+    // Los eventos de la aplicacion.
     events: {}
 };
 ```
 
-### Crear servicios
+### Crear un servicio
 
 El nombre de la carpeta sera el que utilizara el servicio
 
 ```js
 module.exports = {
 
-    // Nombre (Automatico).
+    // El nombre del servicio (Automatico).
     // name: 'test',
 
-    // Prioridad.
+    // La prioridad del servicio ante los otros.
     priority: false,
 
-    // Intentos.
+    // Los intentos que necesite el servicio.
     intents: [],
 
-    // Parciales.
+    // Las parciales que necesite el servicio.
     partials: [],
-    
-    // Banderas.
-    flags: [],
 
-    // Eventos.
+    // Los eventos del servicio.
     events: {}
 };
 ```
 
-### Crear eventos
+### Crear un evento
 
 El nombre de la carpeta sera el que utilizara el evento
 
 ```js
 module.exports = {
 
-    // Nombre (Automatico).
+    // El nombre del servicio (Automatico).
     // name: 'test',
 
-    // Prioridad.
+    // La prioridad del servicio ante los otros.
     priority: false,
 
-    // Intentos.
+    // Los intentos que necesite el servicio.
     intents: [],
 
-    // Parciales.
+    // Las parciales que necesite el servicio.
     partials: [],
-    
-    // Banderas.
-    flags: [],
 
-    // Evento.
-    event: function () {}
+    // El evento del evento.
+    event: function() {}
 };
 ```
 
@@ -244,11 +256,3 @@ module.exports = {
 Funciona para indexar las ``Aplicaciones`` creadas, eliminadas o editadas
 
 > _Puede que en algun momento no se realize la indexacion_
-
-# Banderas predefinidas
-
-| Nombre | Para                          | Descripcion                                           |
-|--------|-------------------------------|-------------------------------------------------------|
-| hide   | Aplicaciones del tipo comando | especifica que se debe ejecutar como oculto (Efimero) |
-| server | Aplicaciones del tipo comando | especifica que puede ejecutar en chats de servidores  |
-| user   | Aplicaciones del tipo comando | especifica que puede ejecutar en chats de usuarios    |

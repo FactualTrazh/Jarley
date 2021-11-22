@@ -2,7 +2,8 @@ const discord = require('discord.js');
 
 module.exports = {
 
-    flags: [ 'server', 'user' ],
+    servers: true,
+    users:   true,
 
     events: {
         
