@@ -190,13 +190,49 @@ for (const _folder of folders.services) {
     delete require.cache[file];
 };
 
-// Organiza por prioridades
+// Controlador de prioridades
 for (const _cache in cache) {
 
     const on  = cache[_cache].filter((val) => val.priority);
     const off = cache[_cache].filter((val) => !val.priority);
 
     cache[_cache] = on.concat(off);
+};
+
+// Controlador de intents
+for (const _cache in cache) {
+
+    for (const _file of cache[_cache]) {
+
+        const intents = [];
+
+        for (const _intent of _file.intents) {
+
+            if (intents.includes(_intent)) continue;
+
+            intents.push(_intent);
+        };
+
+        _file.intents = intents;
+    };
+};
+
+// Controlador de partials
+for (const _cache in cache) {
+
+    for (const _file of cache[_cache]) {
+
+        const partials = [];
+
+        for (const _partial of _file.partials) {
+
+            if (partials.includes(_partial)) continue;
+
+            partials.push(_partial);
+        };
+
+        _file.partials = partials;
+    };
 };
 
 // Exporta los archivos cargados
