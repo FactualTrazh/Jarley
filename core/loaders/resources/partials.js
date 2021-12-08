@@ -8,30 +8,30 @@ for (const _event of readeds.events) {
     // Salta la carga si el evento no fue cargado
     if (!events[_event.name]) continue;
 
-    // Carga los partials del evento
+    // Carga los parciales del evento
     for (const _partial of _event.partials) {
 
-        // Salta si el partial ya fue cargado
+        // Salta si el parcial ya fue cargado
         if (cache.includes(_partial)) continue;
 
-        // Carga el partial
+        // Carga el parcial
         cache.push(_partial);
     };
 
-    // Carga los partials de los archivos que contiene el evento
+    // Carga los parciales de los archivos que contiene el evento
     for (const _file of events[_event.name].all) {
 
-        // Carga los partials del archivo
+        // Carga los parciales del archivo
         for (const _partial of _file.partials) {
 
-            // Salta si el partial ya fue cargado
+            // Salta si el parcial ya fue cargado
             if (cache.includes(_partial)) continue;
 
-            // Carga el partial
+            // Carga el parcial
             cache.push(_partial);
         };
     };
 };
 
-// Exporta los partials
+// Exporta los parciales
 module.exports = cache;

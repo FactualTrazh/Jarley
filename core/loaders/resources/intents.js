@@ -8,30 +8,30 @@ for (const _event of readeds.events) {
     // Salta la carga si el evento no fue cargado
     if (!events[_event.name]) continue;
 
-    // Carga los intents del evento
+    // Carga los intentos del evento
     for (const _intent of _event.intents) {
 
-        // Salta si el intent ya fue cargado
+        // Salta si el intento ya fue cargado
         if (cache.includes(_intent)) continue;
 
-        // Carga el intent
+        // Carga el intento
         cache.push(_intent);
     };
 
-    // Carga los intents de los archivos que contiene el evento
+    // Carga los intentos de los archivos que contiene el evento
     for (const _file of events[_event.name].all) {
 
-        // Carga los intents del archivo
+        // Carga los intentos del archivo
         for (const _intent of _file.intents) {
 
             // Salta si el intent ya fue cargado
             if (cache.includes(_intent)) continue;
 
-            // Carga el intent
+            // Carga el intento
             cache.push(_intent);
         };
     };
 };
 
-// Exporta los intents
+// Exporta los intentos
 module.exports = cache;

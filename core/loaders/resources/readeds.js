@@ -199,7 +199,7 @@ for (const _cache in cache) {
     cache[_cache] = on.concat(off);
 };
 
-// Controlador de intents
+// Controlador de intentos
 for (const _cache in cache) {
 
     for (const _file of cache[_cache]) {
@@ -217,7 +217,7 @@ for (const _cache in cache) {
     };
 };
 
-// Controlador de partials
+// Controlador de parciales
 for (const _cache in cache) {
 
     for (const _file of cache[_cache]) {
