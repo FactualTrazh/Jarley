@@ -1,4 +1,4 @@
-const discord = require('discord.js');
+let discord = require('discord.js');
 
 module.exports = {
 
@@ -12,27 +12,23 @@ module.exports = {
 
         client.on('guildMemberUpdate', ({}, event) => {
 
-            for (const _file of loaders.events[utils.file.name].all) {
-
-                const content = {
-
-                    client,
-                    event,
-                    loaders,
-                    databases,
-                    bases,
-                    utils: new bases.utils(_file)
-                };
+            for (let _file of loaders.events[utils.file.name].all) {
 
                 try {
 
                     // Carga el evento del archivo
-                    _file.events[utils.file.name](content);
+                    _file.events[utils.file.name]({
+
+                        client,
+                        event,
+                        loaders,
+                        databases,
+                        bases,
+                        utils: new bases.utils(_file)
+                    });
                 } catch (err) {
 
                     // Muestra el error en la consola
-                    console.log('Ejecucion fallida');
-                    console.log();
                     console.log(err);
                 };
             };

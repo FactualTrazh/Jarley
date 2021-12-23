@@ -1,7 +1,7 @@
-const fs   = require('fs');
-const path = require('path');
+let fs   = require('fs');
+let path = require('path');
 
-const paths = {
+let paths = {
 
     applications: {
 
@@ -14,7 +14,7 @@ const paths = {
     services: path.join(__dirname, '../../../services')
 };
 
-const folders = {
+let folders = {
 
     applications: {
 
@@ -27,7 +27,7 @@ const folders = {
     services: fs.readdirSync(paths.services).filter((val) => !val.startsWith('.'))
 };
 
-const cache = {
+let cache = {
 
     applications: [],
     events:       [],
@@ -35,13 +35,13 @@ const cache = {
 };
 
 // Carga las aplicaciones del tipo comando
-for (const _folder of folders.applications.commands) {
+for (let _folder of folders.applications.commands) {
 
     // Genera la ruta exacta del archivo
-    const file = path.join(paths.applications.commands, _folder, 'main.js');
+    const FILE_PATH = path.join(paths.applications.commands, _folder, 'main.js');
 
     // Carga el contenido
-    const content = require(file);
+    let content = require(FILE_PATH);
 
     // Configura el contenido
     content.name          = _folder;
@@ -69,17 +69,17 @@ for (const _folder of folders.applications.commands) {
     cache.applications.push(content);
 
     // Elimina el archivo de la cache
-    delete require.cache[file];
+    delete require.cache[FILE_PATH];
 };
 
 // Carga las aplicaciones del tipo mensaje
-for (const _folder of folders.applications.messages) {
+for (let _folder of folders.applications.messages) {
     
     // Genera la ruta exacta del archivo
-    const file = path.join(paths.applications.messages, _folder, 'main.js');
+    const FILE_PATH = path.join(paths.applications.messages, _folder, 'main.js');
 
     // Carga el contenido
-    const content = require(file);
+    let content = require(FILE_PATH);
 
     // Configura el contenido
     content.name = _folder;
@@ -103,17 +103,17 @@ for (const _folder of folders.applications.messages) {
     cache.applications.push(content);
     
     // Elimina el archivo de la cache
-    delete require.cache[file];
+    delete require.cache[FILE_PATH];
 };
 
 // Carga las aplicaciones del tipo usuario
-for (const _folder of folders.applications.users) {
+for (let _folder of folders.applications.users) {
 
     // Genera la ruta exacta del archivo
-    const file = path.join(paths.applications.users, _folder, 'main.js');
+    const FILE_PATH = path.join(paths.applications.users, _folder, 'main.js');
     
     // Carga el contenido
-    const content = require(file);
+    let content = require(FILE_PATH);
 
     // Configura el contenido
     content.name = _folder;
@@ -137,17 +137,17 @@ for (const _folder of folders.applications.users) {
     cache.applications.push(content);
 
     // Elimina el archivo de la cache
-    delete require.cache[file];
+    delete require.cache[FILE_PATH];
 };
 
 // Carga los eventos
-for (const _folder of folders.events) {
+for (let _folder of folders.events) {
 
     // Genera la ruta exacta del archivo
-    const file = path.join(paths.events, _folder, 'main.js');
+    const FILE_PATH = path.join(paths.events, _folder, 'main.js');
 
     // Carga el contenido
-    const content = require(file);
+    let content = require(FILE_PATH);
 
     // Configura el contenido
     content.name = _folder;
@@ -162,17 +162,17 @@ for (const _folder of folders.events) {
     cache.events.push(content);
     
     // Elimina el archivo de la cache
-    delete require.cache[file];
+    delete require.cache[FILE_PATH];
 };
 
 // Carga los servicios
-for (const _folder of folders.services) {
+for (let _folder of folders.services) {
 
     // Genera la ruta exacta del archivo
-    const file = path.join(paths.services, _folder, 'main.js');
+    const FILE_PATH = path.join(paths.services, _folder, 'main.js');
 
     // Carga el contenido
-    const content = require(file);
+    let content = require(FILE_PATH);
 
     // Configura el contenido
     content.name = _folder;
@@ -187,26 +187,26 @@ for (const _folder of folders.services) {
     cache.services.push(content);
     
     // Elimina el archivo de la cache
-    delete require.cache[file];
+    delete require.cache[FILE_PATH];
 };
 
 // Controlador de prioridades
-for (const _cache in cache) {
+for (let _cache in cache) {
 
-    const on  = cache[_cache].filter((val) => val.priority);
-    const off = cache[_cache].filter((val) => !val.priority);
+    let on  = cache[_cache].filter((val) => val.priority);
+    let off = cache[_cache].filter((val) => !val.priority);
 
     cache[_cache] = on.concat(off);
 };
 
 // Controlador de intentos
-for (const _cache in cache) {
+for (let _cache in cache) {
 
-    for (const _file of cache[_cache]) {
+    for (let _file of cache[_cache]) {
 
-        const intents = [];
+        let intents = [];
 
-        for (const _intent of _file.intents) {
+        for (let _intent of _file.intents) {
 
             if (intents.includes(_intent)) continue;
 
@@ -218,13 +218,13 @@ for (const _cache in cache) {
 };
 
 // Controlador de parciales
-for (const _cache in cache) {
+for (let _cache in cache) {
 
-    for (const _file of cache[_cache]) {
+    for (let _file of cache[_cache]) {
 
-        const partials = [];
+        let partials = [];
 
-        for (const _partial of _file.partials) {
+        for (let _partial of _file.partials) {
 
             if (partials.includes(_partial)) continue;
 

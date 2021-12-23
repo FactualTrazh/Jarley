@@ -27,7 +27,7 @@ module.exports = class {
      */
     permissions (content) {
 
-        const list = {
+        let list = {
 
             ADD_REACTIONS:              'Añadir reacciones',
             ADMINISTRATOR:              'Administrador',

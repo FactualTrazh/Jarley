@@ -1,5 +1,5 @@
-const access = require('./resources/access.js');
-const reply  = require('./resources/reply.js');
+let access = require('./resources/access.js');
+let reply  = require('./resources/reply.js');
 
 module.exports = {
 
@@ -10,9 +10,9 @@ module.exports = {
             // Comandos
             if (event.isCommand()) {
 
-                for (const _file of loaders.events[utils.file.name].applications) {
+                for (let _file of loaders.events[utils.file.name].applications) {
 
-                    const content = {
+                    let content = {
 
                         client,
                         event,
@@ -37,8 +37,6 @@ module.exports = {
                             event.editReply({ content: '```Hubo un error al ejecutar el comando```' }).catch(() => {});
 
                             // Muestra el error en la consola
-                            console.log('Ejecucion fallida');
-                            console.log();
                             console.log(err);
                         };
 
@@ -52,9 +50,9 @@ module.exports = {
             if (event.isContextMenu()
             &&  event.targetType === 'MESSAGE') {
                 
-                for (const _file of loaders.events[utils.file.name].applications) {
+                for (let _file of loaders.events[utils.file.name].applications) {
 
-                    const content = {
+                    let content = {
 
                         client,
                         event,
@@ -79,8 +77,6 @@ module.exports = {
                             event.editReply({ content: '```Hubo un error al ejecutar el comando```' }).catch(() => {});
 
                             // Muestra el error en la consola
-                            console.log('Ejecucion fallida');
-                            console.log();
                             console.log(err);
                         };
 
@@ -94,9 +90,9 @@ module.exports = {
             if (event.isContextMenu()
             &&  event.targetType === 'USER') {
                 
-                for (const _file of loaders.events[utils.file.name].applications) {
+                for (let _file of loaders.events[utils.file.name].applications) {
 
-                    const content = {
+                    let content = {
 
                         client,
                         event,
@@ -121,8 +117,6 @@ module.exports = {
                             event.editReply({ content: '```Hubo un error al ejecutar el comando```' }).catch(() => {});
 
                             // Muestra el error en la consola
-                            console.log('Ejecucion fallida');
-                            console.log();
                             console.log(err);
                         };
 

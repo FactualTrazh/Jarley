@@ -6,8 +6,8 @@ module.exports = {
 
         ready: async function ({ client, loaders, databases, bases, utils }) {
 
-            const loadedApplications = loaders.readeds.applications.map((val) => val.schema);
-            const botApplications    = await client.application.commands.fetch();
+            let loadedApplications = loaders.readeds.applications.map((val) => val.schema);
+            let botApplications    = await client.application.commands.fetch();
 
             function index () {
     
@@ -28,10 +28,10 @@ module.exports = {
             if (loadedApplications.length !== botApplications.size) return index();
 
             // Verifica si los arrays son iguales
-            for (const _file of botApplications.values()) {
+            for (let _file of botApplications.values()) {
 
                 // Obtiene el comando
-                const findCommand = loadedApplications.find((val) => val.name === _file.name);
+                let findCommand = loadedApplications.find((val) => val.name === _file.name);
 
                 // Verifica si se obtuvo el comando
                 if (!findCommand) return index();
@@ -43,10 +43,10 @@ module.exports = {
                     if (findCommand.options.length !== _file.options.length) return index();
 
                     // Verifica si los arrays son iguales
-                    for (const _option of _file.options) {
+                    for (let _option of _file.options) {
 
                         // Obtiene la opcion
-                        const findOption = findCommand.options.find((val) => val.name === _option.name);
+                        let findOption = findCommand.options.find((val) => val.name === _option.name);
 
                         // Verifica si se obtuvo la opcion
                         if (!findOption) return index();

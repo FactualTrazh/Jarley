@@ -1,13 +1,13 @@
-const discord = require('discord.js');
-const dotenv  = require('dotenv');
+let discord = require('discord.js');
+let dotenv  = require('dotenv');
 
-const loaders = require('./core/loaders/exports.js');
+let loaders = require('./core/loaders/exports.js');
 
 // Configura las variables de entorno
 dotenv.config();
 
 // Crea el cliente
-const client = new discord.Client({
+let client = new discord.Client({
 
     intents:  loaders.intents,
     partials: loaders.partials,

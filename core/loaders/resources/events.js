@@ -1,12 +1,12 @@
-const readeds = require('./readeds.js');
+let readeds = require('./readeds.js');
 
-const cache = {};
+let cache = {};
 
-for (const _file of readeds.events) {
+for (let _file of readeds.events) {
 
-    const applications = readeds.applications.filter((val) => val.events[_file.name]);
-    const services     = readeds.services.filter((val) => val.events[_file.name]);
-    const all          = applications.concat(services);
+    let applications = readeds.applications.filter((val) => val.events[_file.name]);
+    let services     = readeds.services.filter((val) => val.events[_file.name]);
+    let all          = applications.concat(services);
 
     // Salta la carga si el evento no es requido
     if (!all.length) continue;
