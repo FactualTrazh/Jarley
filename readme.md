@@ -55,8 +55,6 @@ El tipo de aplicacion se obtiene dependiendo de en cual categoria se creo la car
 El esquema se genera segun los valores del archivo principal
 
 ```js
-const discord = require('discord.js');
-
 module.exports = {
 
     // El nombre de la aplicacion (Automatico).
@@ -110,8 +108,6 @@ El tipo de aplicacion se obtiene dependiendo de en cual categoria se creo la car
 El esquema se genera segun los valores del archivo principal
 
 ```js
-const discord = require('discord.js');
-
 module.exports = {
 
     // El nombre de la aplicacion (Automatico).
@@ -160,8 +156,6 @@ El tipo de aplicacion se obtiene dependiendo de en cual categoria se creo la car
 El esquema se genera segun los valores del archivo principal
 
 ```js
-const discord = require('discord.js');
-
 module.exports = {
 
     // El nombre de la aplicacion (Automatico).
